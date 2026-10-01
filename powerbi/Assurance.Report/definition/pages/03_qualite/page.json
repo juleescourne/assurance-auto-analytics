@@ -1,0 +1,491 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "03_qualite",
+  "displayName": "03 · Qualité et limites",
+  "displayOption": "FitToPage",
+  "width": 1440,
+  "height": 1080,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F3F6FA'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_couverture_age_vehicule",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_statuts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_orphelins",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03_qualite_filtre_region",
+      "target": "03_qualite_influence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_couverture_age_vehicule",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_statuts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_orphelins",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03_qualite_filtre_marque",
+      "target": "03_qualite_influence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_couverture_age_vehicule",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_statuts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_orphelins",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03_qualite_filtre_age",
+      "target": "03_qualite_influence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_couverture_age_vehicule",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_statuts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_orphelins",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03_qualite_filtre_carburant",
+      "target": "03_qualite_influence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_statuts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_orphelins",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03_qualite_couverture_age_vehicule",
+      "target": "03_qualite_influence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_couverture_age_vehicule",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_orphelins",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03_qualite_statuts",
+      "target": "03_qualite_influence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_couverture_age_vehicule",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_statuts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "03_qualite_influence",
+      "target": "03_qualite_orphelins",
+      "type": "NoFilter"
+    }
+  ]
+}

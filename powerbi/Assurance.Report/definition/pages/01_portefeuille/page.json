@@ -1,0 +1,456 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "01_portefeuille",
+  "displayName": "01 · Vue d'ensemble",
+  "displayOption": "FitToPage",
+  "width": 1440,
+  "height": 1080,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F3F6FA'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_regions_volume",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_age_frequence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_region",
+      "target": "01_portefeuille_comparatif_regions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_regions_volume",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_age_frequence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_marque",
+      "target": "01_portefeuille_comparatif_regions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_regions_volume",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_age_frequence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_age",
+      "target": "01_portefeuille_comparatif_regions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_regions_volume",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_age_frequence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_filtre_carburant",
+      "target": "01_portefeuille_comparatif_regions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_age_frequence",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_regions_volume",
+      "target": "01_portefeuille_comparatif_regions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_regions_volume",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_age_frequence",
+      "target": "01_portefeuille_comparatif_regions",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_filtre_region",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_filtre_marque",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_filtre_age",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_filtre_carburant",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_regions_volume",
+      "type": "DataFilter"
+    },
+    {
+      "source": "01_portefeuille_comparatif_regions",
+      "target": "01_portefeuille_age_frequence",
+      "type": "DataFilter"
+    }
+  ]
+}

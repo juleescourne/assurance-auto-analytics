@@ -1,0 +1,604 @@
+{
+  "name": "Assurance",
+  "compatibilityLevel": 1601,
+  "model": {
+    "culture": "fr-FR",
+    "sourceQueryCulture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DossierDonnees",
+        "kind": "m",
+        "expression": "\"D:\\formation\\recherche_emploi_rouen\\assurance\\data\\processed\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "description": "Dossier contenant les CSV exportés par analyse_approfondie.ipynb."
+      }
+    ],
+    "tables": [
+      {
+        "name": "Contrats",
+        "lineageTag": "9d6dac2d-7f37-53ba-b76d-6a94fd1ebd68",
+        "description": "Une ligne par contrat de freq. Source des expositions, sinistres déclarés et segments.",
+        "columns": [
+          {
+            "name": "IDpol",
+            "dataType": "int64",
+            "sourceColumn": "IDpol",
+            "summarizeBy": "none",
+            "lineageTag": "ce6634d3-6ed0-5537-87f8-9f3710faaf65",
+            "isKey": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "ClaimNb",
+            "dataType": "int64",
+            "sourceColumn": "ClaimNb",
+            "summarizeBy": "none",
+            "lineageTag": "f4c70362-01a3-59e4-b6d6-2e5cffa92173",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Exposure",
+            "dataType": "double",
+            "sourceColumn": "Exposure",
+            "summarizeBy": "none",
+            "lineageTag": "f8fa1a80-c781-560d-bc43-1a0533e79b17",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "Area",
+            "dataType": "string",
+            "sourceColumn": "Area",
+            "summarizeBy": "none",
+            "lineageTag": "9af2b7f7-d099-5228-ac1f-4ba31b5463f7"
+          },
+          {
+            "name": "VehPower",
+            "dataType": "int64",
+            "sourceColumn": "VehPower",
+            "summarizeBy": "none",
+            "lineageTag": "1409085d-6af3-5ae0-a7b8-632fc929b21b",
+            "formatString": "#,0"
+          },
+          {
+            "name": "VehAge",
+            "dataType": "int64",
+            "sourceColumn": "VehAge",
+            "summarizeBy": "none",
+            "lineageTag": "ac32d0b3-494e-5956-8920-ea34bec2fcb7",
+            "formatString": "#,0"
+          },
+          {
+            "name": "DrivAge",
+            "dataType": "int64",
+            "sourceColumn": "DrivAge",
+            "summarizeBy": "none",
+            "lineageTag": "fa1e2bf9-b615-5779-beee-e620701e750f",
+            "formatString": "#,0"
+          },
+          {
+            "name": "BonusMalus",
+            "dataType": "int64",
+            "sourceColumn": "BonusMalus",
+            "summarizeBy": "none",
+            "lineageTag": "714a93c3-0f8f-5dbb-823a-9480982c8a83",
+            "formatString": "#,0"
+          },
+          {
+            "name": "VehBrand",
+            "dataType": "string",
+            "sourceColumn": "VehBrand",
+            "summarizeBy": "none",
+            "lineageTag": "579704d5-0695-5596-b5d5-a2543b392b57"
+          },
+          {
+            "name": "VehGas",
+            "dataType": "string",
+            "sourceColumn": "VehGas",
+            "summarizeBy": "none",
+            "lineageTag": "1874c635-2deb-5db8-ab7d-906594b618f4"
+          },
+          {
+            "name": "Density",
+            "dataType": "int64",
+            "sourceColumn": "Density",
+            "summarizeBy": "none",
+            "lineageTag": "81a0ffcc-4c68-52ab-a72c-c3f69fb90c7c",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "summarizeBy": "none",
+            "lineageTag": "92b7e0e2-db6c-5239-aae2-2259a6d7b169"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none",
+            "lineageTag": "0586b079-04a4-5573-add3-ff6096bfa3f0"
+          },
+          {
+            "name": "TrancheAgeConducteur",
+            "dataType": "string",
+            "sourceColumn": "TrancheAgeConducteur",
+            "summarizeBy": "none",
+            "lineageTag": "f7e1cc0f-b8a7-53d7-9875-22fc960f60e7",
+            "sortByColumn": "Ordre_TrancheAgeConducteur"
+          },
+          {
+            "name": "TrancheAgeVehicule",
+            "dataType": "string",
+            "sourceColumn": "TrancheAgeVehicule",
+            "summarizeBy": "none",
+            "lineageTag": "622d28bc-1ce3-5db8-9be8-bf357d6f3a2f",
+            "sortByColumn": "Ordre_TrancheAgeVehicule"
+          },
+          {
+            "name": "TrancheBonusMalus",
+            "dataType": "string",
+            "sourceColumn": "TrancheBonusMalus",
+            "summarizeBy": "none",
+            "lineageTag": "6a59e9f9-ef40-566a-9bef-dec5736653df",
+            "sortByColumn": "Ordre_TrancheBonusMalus"
+          },
+          {
+            "name": "TranchePuissance",
+            "dataType": "string",
+            "sourceColumn": "TranchePuissance",
+            "summarizeBy": "none",
+            "lineageTag": "ce0cc533-5810-5036-8d1c-c7763f7c45f2",
+            "sortByColumn": "Ordre_TranchePuissance"
+          },
+          {
+            "name": "TrancheDensite",
+            "dataType": "string",
+            "sourceColumn": "TrancheDensite",
+            "summarizeBy": "none",
+            "lineageTag": "b269d7a9-edc4-5670-a7ad-060c519db6a1",
+            "sortByColumn": "Ordre_TrancheDensite"
+          },
+          {
+            "name": "ContratSinistre",
+            "dataType": "boolean",
+            "sourceColumn": "ContratSinistre",
+            "summarizeBy": "none",
+            "lineageTag": "fa301e40-4b6b-5daa-8011-e8d67203a797",
+            "isHidden": true
+          },
+          {
+            "name": "SansMontant",
+            "dataType": "boolean",
+            "sourceColumn": "SansMontant",
+            "summarizeBy": "none",
+            "lineageTag": "17b820f4-a658-599e-b1cb-d49184859db2",
+            "isHidden": true
+          },
+          {
+            "name": "GroupeMarque",
+            "dataType": "string",
+            "sourceColumn": "GroupeMarque",
+            "summarizeBy": "none",
+            "lineageTag": "1b683820-5de7-5e47-b53c-eb6524a55925"
+          },
+          {
+            "name": "GroupeVehicule",
+            "dataType": "string",
+            "sourceColumn": "GroupeVehicule",
+            "summarizeBy": "none",
+            "lineageTag": "94b05187-4fd3-560b-b087-43150964ab28"
+          },
+          {
+            "name": "GroupeConducteur",
+            "dataType": "string",
+            "sourceColumn": "GroupeConducteur",
+            "summarizeBy": "none",
+            "lineageTag": "16a961df-9b7b-5628-81c9-11375b5f797e"
+          },
+          {
+            "name": "GroupeRegion",
+            "dataType": "string",
+            "sourceColumn": "GroupeRegion",
+            "summarizeBy": "none",
+            "lineageTag": "86fe6b53-bf69-59db-b20a-8ed42bc1ccca"
+          },
+          {
+            "name": "TrancheExposition",
+            "dataType": "string",
+            "sourceColumn": "TrancheExposition",
+            "summarizeBy": "none",
+            "lineageTag": "26970782-0cc9-551b-9031-7c95e6e036fa",
+            "sortByColumn": "Ordre_TrancheExposition"
+          },
+          {
+            "name": "Ordre_TrancheAgeConducteur",
+            "dataType": "int64",
+            "sourceColumn": "Ordre_TrancheAgeConducteur",
+            "summarizeBy": "none",
+            "lineageTag": "de506b75-3b0d-5dab-9b23-a0bddc28a468",
+            "isHidden": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "Ordre_TrancheAgeVehicule",
+            "dataType": "int64",
+            "sourceColumn": "Ordre_TrancheAgeVehicule",
+            "summarizeBy": "none",
+            "lineageTag": "974a2d3a-0b1e-5489-a978-7d371c6a805a",
+            "isHidden": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "Ordre_TrancheBonusMalus",
+            "dataType": "int64",
+            "sourceColumn": "Ordre_TrancheBonusMalus",
+            "summarizeBy": "none",
+            "lineageTag": "92648afa-c591-551c-9e1c-b1e71b83617a",
+            "isHidden": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "Ordre_TranchePuissance",
+            "dataType": "int64",
+            "sourceColumn": "Ordre_TranchePuissance",
+            "summarizeBy": "none",
+            "lineageTag": "6bb523c2-9703-5889-95e8-df3cd84b3e84",
+            "isHidden": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "Ordre_TrancheDensite",
+            "dataType": "int64",
+            "sourceColumn": "Ordre_TrancheDensite",
+            "summarizeBy": "none",
+            "lineageTag": "53035b5e-11e0-5a2e-bbd3-139220f93294",
+            "isHidden": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "Ordre_TrancheExposition",
+            "dataType": "int64",
+            "sourceColumn": "Ordre_TrancheExposition",
+            "summarizeBy": "none",
+            "lineageTag": "81abdfa5-00ec-5670-8d10-c3883e773df2",
+            "isHidden": true,
+            "formatString": "#,0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Contrats",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DossierDonnees & \"\\contrats.csv\"), [Delimiter=\";\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes, {{\"IDpol\", Int64.Type}, {\"ClaimNb\", Int64.Type}, {\"Exposure\", type number}, {\"Area\", type text}, {\"VehPower\", Int64.Type}, {\"VehAge\", Int64.Type}, {\"DrivAge\", Int64.Type}, {\"BonusMalus\", Int64.Type}, {\"VehBrand\", type text}, {\"VehGas\", type text}, {\"Density\", Int64.Type}, {\"Region\", type text}, {\"Status\", type text}, {\"TrancheAgeConducteur\", type text}, {\"TrancheAgeVehicule\", type text}, {\"TrancheBonusMalus\", type text}, {\"TranchePuissance\", type text}, {\"TrancheDensite\", type text}, {\"ContratSinistre\", type logical}, {\"SansMontant\", type logical}, {\"GroupeMarque\", type text}, {\"GroupeVehicule\", type text}, {\"GroupeConducteur\", type text}, {\"GroupeRegion\", type text}, {\"TrancheExposition\", type text}, {\"Ordre_TrancheAgeConducteur\", Int64.Type}, {\"Ordre_TrancheAgeVehicule\", Int64.Type}, {\"Ordre_TrancheBonusMalus\", Int64.Type}, {\"Ordre_TranchePuissance\", Int64.Type}, {\"Ordre_TrancheDensite\", Int64.Type}, {\"Ordre_TrancheExposition\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Types"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Nombre de contrats",
+            "expression": "COALESCE(COUNTROWS(Contrats), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Portefeuille",
+            "description": "Nombre de contrats dans le contexte de filtre courant.",
+            "lineageTag": "e68ffc23-8040-549e-a3b9-037d7f4668c3"
+          },
+          {
+            "name": "Exposition annees",
+            "expression": "SUM(Contrats[Exposure])",
+            "formatString": "#,0.00",
+            "displayFolder": "Portefeuille",
+            "description": "Durée totale assurée, en années. Ne pas additionner après une jointure au grain sinistre.",
+            "lineageTag": "95171ca9-e081-5510-9673-ae37a0cc0866"
+          },
+          {
+            "name": "Sinistres declares",
+            "expression": "SUM(Contrats[ClaimNb])",
+            "formatString": "#,0",
+            "displayFolder": "Portefeuille",
+            "description": "Sinistres déclarés dans freq ; sert à la fréquence.",
+            "lineageTag": "ab95465d-6d07-558f-a1b6-5634524c60f0"
+          },
+          {
+            "name": "Frequence pour 100 annees",
+            "expression": "100 * DIVIDE([Sinistres declares], [Exposition annees])",
+            "formatString": "0.00",
+            "displayFolder": "Portefeuille",
+            "description": "Ratio des sommes : sinistres pour 100 années, et non pourcentage de contrats.",
+            "lineageTag": "b2646116-6a9b-5103-b34c-8a5f41bf295e"
+          },
+          {
+            "name": "Frequence portefeuille",
+            "expression": "CALCULATE([Frequence pour 100 annees], REMOVEFILTERS(Contrats))",
+            "formatString": "0.00",
+            "displayFolder": "Portefeuille",
+            "description": "Référence sur tous les contrats, indépendante des filtres de segments.",
+            "lineageTag": "ad349310-e735-57f5-8f8c-3d524d3535ab"
+          },
+          {
+            "name": "Contrats sinistres",
+            "expression": "COALESCE(CALCULATE(COUNTROWS(Contrats), KEEPFILTERS(Contrats[ClaimNb] > 0)), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Qualite",
+            "description": "",
+            "lineageTag": "c00543da-b1d6-5014-8000-8ff1ca25084c"
+          },
+          {
+            "name": "Contrats sans montant",
+            "expression": "COALESCE(CALCULATE(COUNTROWS(Contrats), KEEPFILTERS(Contrats[Status] = \"Montant non retrouvé\")), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Qualite",
+            "description": "",
+            "lineageTag": "4c833793-c9e6-5c47-ac6d-92a199b17386"
+          },
+          {
+            "name": "Part sans montant",
+            "expression": "DIVIDE([Contrats sans montant], [Contrats sinistres])",
+            "formatString": "0.00%",
+            "displayFolder": "Qualite",
+            "description": "Part des contrats sinistrés absents de sev. Le contrat avec un écart de nombre est suivi séparément.",
+            "lineageTag": "e6f014b5-3fed-597f-a02a-c19de4ea167e"
+          },
+          {
+            "name": "Contrats nombre different",
+            "expression": "COALESCE(CALCULATE(COUNTROWS(Contrats), KEEPFILTERS(Contrats[Status] = \"Nombre différent\")), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Qualite",
+            "description": "",
+            "lineageTag": "a1b1fd24-5721-586c-ad10-8998944a49bb"
+          },
+          {
+            "name": "Sinistres observes",
+            "expression": "COALESCE(COUNTROWS(Sinistres), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Couts observes",
+            "description": "",
+            "lineageTag": "2861e07e-a754-5599-943c-dba5625ac330"
+          },
+          {
+            "name": "Montant observe",
+            "expression": "SUM(Sinistres[ClaimAmount])",
+            "formatString": "#,0.00 \"€\"",
+            "displayFolder": "Couts observes",
+            "description": "Somme des seuls montants rapprochés. Aucune imputation des coûts absents.",
+            "lineageTag": "91c04324-0687-50f1-a9ea-2a693c6a747c"
+          },
+          {
+            "name": "Cout moyen observe",
+            "expression": "DIVIDE([Montant observe], [Sinistres observes])",
+            "formatString": "#,0.00 \"€\"",
+            "displayFolder": "Couts observes",
+            "description": "",
+            "lineageTag": "34604e6d-f054-5076-8c1f-08f2c1c43704"
+          },
+          {
+            "name": "Cout median observe",
+            "expression": "MEDIAN(Sinistres[ClaimAmount])",
+            "formatString": "#,0.00 \"€\"",
+            "displayFolder": "Couts observes",
+            "description": "Médiane des montants individuels, pas des totaux par contrat.",
+            "lineageTag": "3ddeb81f-37b5-5b6f-bd4a-d366122e7f36"
+          },
+          {
+            "name": "Cout observe par annee",
+            "expression": "DIVIDE([Montant observe], [Exposition annees])",
+            "formatString": "#,0.00 \"€\"",
+            "displayFolder": "Couts observes",
+            "description": "",
+            "lineageTag": "973bae68-d29f-5b0e-a67f-26d3639e76c5"
+          },
+          {
+            "name": "Plus gros sinistre",
+            "expression": "MAX(Sinistres[ClaimAmount])",
+            "formatString": "#,0.00 \"€\"",
+            "displayFolder": "Couts observes",
+            "description": "",
+            "lineageTag": "59fd5303-2bf3-5af9-85db-e27b1d192cfa"
+          },
+          {
+            "name": "Part du plus gros sinistre",
+            "expression": "DIVIDE([Plus gros sinistre], [Montant observe])",
+            "formatString": "0.00%",
+            "displayFolder": "Couts observes",
+            "description": "",
+            "lineageTag": "2db39e96-d67f-52ec-bc30-4fece7c01e34"
+          },
+          {
+            "name": "Moyenne sans le plus gros",
+            "expression": "IF([Sinistres observes] > 1, DIVIDE([Montant observe] - [Plus gros sinistre], [Sinistres observes] - 1))",
+            "formatString": "#,0.00 \"€\"",
+            "displayFolder": "Couts observes",
+            "description": "Diagnostic : retirer un seul montant maximal dans le contexte courant. Aucune ligne source supprimée.",
+            "lineageTag": "962741b4-4a99-5247-9045-571e988912c8"
+          },
+          {
+            "name": "Contrats orphelins",
+            "expression": "COALESCE(DISTINCTCOUNT(Orphelins[IDpol]), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Orphelins - source complete",
+            "description": "",
+            "lineageTag": "91073cbf-262c-5b87-8186-c8dac4f1609c"
+          },
+          {
+            "name": "Lignes orphelines",
+            "expression": "COALESCE(COUNTROWS(Orphelins), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Orphelins - source complete",
+            "description": "",
+            "lineageTag": "c1b6aa76-08f6-5555-b5b7-60dfea41df09"
+          },
+          {
+            "name": "Montant orphelin",
+            "expression": "SUM(Orphelins[ClaimAmount])",
+            "formatString": "#,0.00 \"€\"",
+            "displayFolder": "Orphelins - source complete",
+            "description": "",
+            "lineageTag": "b9d95808-117e-5002-9994-b79f33431efe"
+          },
+          {
+            "name": "Priorite exploration",
+            "expression": "IF([Nombre de contrats] >= 10000 && [Exposition annees] >= 1000 && [Frequence pour 100 annees] >= 1.2 * [Frequence portefeuille], \"À approfondir\", \"\")",
+            "formatString": "",
+            "displayFolder": "Exploration",
+            "description": "Critères exploratoires : 10000 contrats, 1000 années et fréquence +20% par rapport au portefeuille. Pas un test statistique.",
+            "lineageTag": "05b5b87c-4a85-5555-b2d6-02a4c8664aec"
+          },
+          {
+            "name": "Frequence affichable",
+            "expression": "IF([Exposition annees] >= 1000, [Frequence pour 100 annees])",
+            "formatString": "0.00",
+            "displayFolder": "Exploration",
+            "description": "Masque uniquement la fréquence du visuel sous 1000 années d’exposition ; les contrats restent dans le modèle.",
+            "lineageTag": "0a465d59-e265-5c88-b9fb-91997f339f36"
+          },
+          {
+            "name": "Frequence age bonus",
+            "expression": "IF([Nombre de contrats] >= 1000 && [Exposition annees] >= 500, [Frequence pour 100 annees])",
+            "formatString": "0.00",
+            "displayFolder": "Exploration",
+            "description": "Affichage des sous-groupes avec au moins 1000 contrats et 500 années. Seuils de lecture, pas un test.",
+            "lineageTag": "612b4860-8990-5c0d-bc28-953fbade398f"
+          },
+          {
+            "name": "Rang region sinistres",
+            "expression": "RANKX(ALLSELECTED(Contrats[Region]), [Sinistres declares], , DESC, DENSE)",
+            "formatString": "#,0",
+            "displayFolder": "Exploration",
+            "description": "",
+            "lineageTag": "7368aa75-e6ac-58bc-9f20-adce0e1addc4"
+          }
+        ]
+      },
+      {
+        "name": "Sinistres",
+        "lineageTag": "2f47de73-3942-5f2a-ab62-641b9cf790cc",
+        "description": "Une ligne par sinistre observé de sev rapproché. Montants incomplets ; répétitions conservées.",
+        "columns": [
+          {
+            "name": "LigneSource",
+            "dataType": "int64",
+            "sourceColumn": "LigneSource",
+            "summarizeBy": "none",
+            "lineageTag": "5967a2df-826f-54a6-832d-203abe78e5c8",
+            "isHidden": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "IDpol",
+            "dataType": "int64",
+            "sourceColumn": "IDpol",
+            "summarizeBy": "none",
+            "lineageTag": "75e036a9-94a1-5ada-a5b3-173da1164668",
+            "formatString": "#,0"
+          },
+          {
+            "name": "ClaimAmount",
+            "dataType": "double",
+            "sourceColumn": "ClaimAmount",
+            "summarizeBy": "none",
+            "lineageTag": "dc0d4f71-99d2-530c-8c88-756778d5cd3e",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Sinistres",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DossierDonnees & \"\\sinistres.csv\"), [Delimiter=\";\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes, {{\"LigneSource\", Int64.Type}, {\"IDpol\", Int64.Type}, {\"ClaimAmount\", type number}}, \"en-US\")",
+                "in",
+                "    Types"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Orphelins",
+        "lineageTag": "290c4d2e-030f-5875-85f9-1e6d0fe624cb",
+        "description": "Sinistres de sev absents de freq. Table indépendante, non filtrée par les caractéristiques des contrats.",
+        "columns": [
+          {
+            "name": "LigneSource",
+            "dataType": "int64",
+            "sourceColumn": "LigneSource",
+            "summarizeBy": "none",
+            "lineageTag": "bb75efb2-7013-5bb7-94cd-2aadf0db4191",
+            "isHidden": true,
+            "formatString": "#,0"
+          },
+          {
+            "name": "IDpol",
+            "dataType": "int64",
+            "sourceColumn": "IDpol",
+            "summarizeBy": "none",
+            "lineageTag": "b04559bf-32ac-50e0-91d8-1cccfc2ab479",
+            "formatString": "#,0"
+          },
+          {
+            "name": "ClaimAmount",
+            "dataType": "double",
+            "sourceColumn": "ClaimAmount",
+            "summarizeBy": "none",
+            "lineageTag": "96ae3333-3d45-5d99-8e4c-a03b95e66bd4",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Orphelins",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DossierDonnees & \"\\orphelins.csv\"), [Delimiter=\";\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes, {{\"LigneSource\", Int64.Type}, {\"IDpol\", Int64.Type}, {\"ClaimAmount\", type number}}, \"en-US\")",
+                "in",
+                "    Types"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "Contrats_vers_Sinistres",
+        "fromTable": "Sinistres",
+        "fromColumn": "IDpol",
+        "toTable": "Contrats",
+        "toColumn": "IDpol",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DossierDonnees\",\"Contrats\",\"Sinistres\",\"Orphelins\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      }
+    ]
+  }
+}

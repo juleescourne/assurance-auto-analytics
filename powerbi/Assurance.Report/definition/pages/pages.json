@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "01_portefeuille",
+    "02_segments",
+    "03_qualite"
+  ],
+  "activePageName": "01_portefeuille"
+}

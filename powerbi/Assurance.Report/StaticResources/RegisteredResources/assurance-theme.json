@@ -1,0 +1,28 @@
+{
+  "name": "Assurance - Jules Courne",
+  "dataColors": [
+    "#2C7BE5",
+    "#C77916",
+    "#168C92",
+    "#7B62A3",
+    "#60758C",
+    "#C35A68"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#142D4E",
+  "tableAccent": "#2C7BE5",
+  "textClasses": {
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 13
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28
+    }
+  }
+}

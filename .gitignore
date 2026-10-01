@@ -1,0 +1,32 @@
+# Données publiques téléchargeables et exports régénérables
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+
+# Python / Jupyter
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.env
+.env.*
+
+# Power BI : caches et préférences locales
+**/.pbi/
+*.pbix
+*.pbit
+*.abf
+
+# Ancienne entrée sans rapport et copie locale de correction
+/Dashboard_Ventes.pbip
+/powerbi/Assurance_corrigee.pbip
+/powerbi/Assurance_corrigee.Report/
+
+# Fichiers système / éditeur
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/

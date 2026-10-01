@@ -1,0 +1,22 @@
+name: Verification du projet
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  livrables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+      - name: Preparer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Verifier les notebooks, les liens et les champs Power BI
+        run: python scripts/verifier_livrables.py
