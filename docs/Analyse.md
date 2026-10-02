@@ -1,6 +1,6 @@
 # Synthèse des analyses — Assurance automobile
 
-**Date :** 01/10/2026
+**Date :** 02/10/2026
 **Projet :** étude de cas fictive sur les données freMTPL2freq et freMTPL2sev
 **Sources :** [analyse globale](../notebook/analyse_globale.ipynb) et [analyse approfondie](../notebook/analyse_approfondie.ipynb)
 **Contrôles des données :** [rapport qualité](Qualité.md)
@@ -72,7 +72,7 @@ Les neuf groupes retenus sont : **B12, les zones E et F, le bonus-malus 76-100, 
 
 Ils concernent **359 446 contrats distincts et 20 164 sinistres déclarés**. Un contrat pouvant appartenir à plusieurs groupes, je n'additionne pas leurs effectifs. Les autres contrats restent disponibles pour les comparaisons.
 
-Ces seuils servent à choisir les sujets à approfondir. Ils ne constituent pas un test statistique. Le bonus-malus 101-125 reste intéressant, mais ses 6 987 contrats sont sous le seuil de volume choisi.
+Ces seuils servent à choisir les sujets à approfondir. Je complète cette sélection avec R24 pour son poids dans le volume, même si sa fréquence globale est basse. Ils ne constituent pas un test statistique. Le bonus-malus 101-125 reste intéressant, mais ses 6 987 contrats sont sous le seuil de volume choisi.
 
 ### B12 et âge du véhicule
 
@@ -117,6 +117,61 @@ Les **11 302 contrats de densité supérieure à 20 000** sont tous en R11 : il 
 
 Les zones E/F et les fortes densités se recoupent en partie. Je ne les interprète pas automatiquement comme des signaux indépendants.
 
+### Investigations complémentaires : B12 / véhicule de 0 an
+
+Je compare B12 aux autres marques **parmi les seuls véhicules codés 0 an**. Le code d'âge ne donne pas la date d'achat ni la date du sinistre.
+
+| Exposition du contrat | Contrats B12 | Sinistres B12 | Exposition B12 (années) | Fréquence B12 | Fréquence autres marques | Sans montant B12 |
+|---|---:|---:|---:|---:|---:|---:|
+| Jusqu'à 0,10 an | 16 319 | 1 498 | 880,88 | 170,06 | 39,48 | 96,63 % |
+| Plus de 0,10 à 0,50 an | 13 501 | 1 750 | 3 649,67 | 47,95 | 13,59 | 86,18 % |
+| Plus de 0,50 à 1 an | 7 237 | 1 070 | 5 017,07 | 21,33 | 9,68 | 75,15 % |
+
+La catégorie supérieure à un an reste dans les tableaux complets : seulement 12 contrats B12, aucun sinistre. Je n'en tire pas de conclusion comparative.
+
+**Ce qui change :** la fréquence élevée de B12 ne se limite pas aux durées très courtes. Au-delà de 0,50 an, elle reste à **21,27 contre 9,40** pour les autres marques. Ces valeurs incluent les expositions supérieures à un an, d'où la différence avec la dernière ligne du tableau.
+
+Cela ne prouve pas un effet propre à la marque. D'autres caractéristiques peuvent différer, et la couverture des montants reste faible. Je demande d'abord une vérification des périodes couvertes et du rapprochement des montants, puis des circonstances des sinistres.
+
+### R24 : chercher derrière la moyenne régionale
+
+J'ai comparé R24 aux **autres régions réunies, sans R24**, selon cinq axes : âge du véhicule, âge du conducteur, bonus-malus, densité et exposition. Puis j'ai croisé l'âge du véhicule et le bonus-malus. Chaque ligne présentée comme comparaison retenue a au moins **1 000 contrats et 500 années de chaque côté**. Ce sont des seuils de lecture, pas une garantie statistique.
+
+| Profil en R24 | Contrats | Sinistres | Exposition (années) | Fréquence R24 | Même profil hors R24 | Sans montant R24 |
+|---|---:|---:|---:|---:|---:|---:|
+| Véhicule 1-2 ans, bonus-malus 76-100 | 1 531 | 117 | 689,87 | 16,96 | 12,81 | 8,49 % |
+| Véhicule 1-2 ans, bonus-malus ≤ 50 | 11 886 | 747 | 7 956,24 | 9,39 | 7,23 | 44,34 % |
+| Véhicule 6-10 ans, bonus-malus 76-100 | 7 161 | 490 | 3 299,51 | 14,85 | 17,16 | 8,01 % |
+
+Le premier profil mérite une investigation ciblée malgré la moyenne régionale basse. Le deuxième est sous la moyenne du portefeuille, mais au-dessus de la référence correspondant aux mêmes tranches ailleurs. Le troisième rappelle qu'une fréquence élevée en valeur absolue ne signifie pas que R24 est plus élevée que son comparateur. Le notebook conserve tous les profils, y compris ceux dont l'écart est négatif.
+
+Pour les coûts, R24 présente une moyenne de **2 945,92 €** et une médiane de **1 128,12 €**. Un seul sinistre représente **21,37 %** des montants régionaux observés. Sans une occurrence de ce maximum, la moyenne serait de **2 316,87 €**. C'est un diagnostic, pas une suppression de donnée.
+
+### R11 : compléter la densité par le bonus-malus
+
+| Profil en R11 | Contrats | Sinistres | Exposition (années) | Fréquence R11 | Même profil hors R11 | Sans montant R11 |
+|---|---:|---:|---:|---:|---:|---:|
+| Densité 1 001-5 000, bonus-malus 51-75 | 6 793 | 412 | 2 789,59 | 14,77 | 12,26 | 34,99 % |
+| Densité 5 001-20 000, bonus-malus 51-75 | 6 495 | 337 | 2 672,25 | 12,61 | 12,70 | 29,90 % |
+| Densité 5 001-20 000, bonus-malus 76-100 | 5 237 | 353 | 1 835,37 | 19,23 | 18,96 | 33,44 % |
+
+L'écart reste visible pour le premier profil, alors qu'il est faible pour les deux suivants. Je ne propose donc pas la même priorité pour tous les contrats R11. Comparer deux caractéristiques ne suffit toutefois pas à rendre les groupes identiques : les autres profils peuvent encore différer.
+
+Au-delà de 20 000 habitants/km², aucun contrat hors R11 n'est disponible. La comparaison reste vide ; elle n'est pas remplacée par zéro. Le maximum représente **4,01 %** des montants observés de R11, bien moins que dans R24.
+
+### Sensibilité des deux régions aux groupes particuliers
+
+J'applique chaque condition aux contrats de la région **et** au comparateur. Les scénarios ne modifient pas les résultats de référence.
+
+| Scénario | Fréquence R24 | Hors R24 | Fréquence R11 | Hors R11 |
+|---|---:|---:|---:|---:|
+| Portefeuille complet | 8,96 | 10,52 | 13,17 | 9,79 |
+| Exposition > 0,10 an | 8,61 | 9,58 | 11,51 | 9,10 |
+| Sans B12 / véhicule de 0 an | 8,93 | 9,18 | 10,27 | 9,01 |
+| Sans B12 / 0 an et exposition > 0,10 an | 8,59 | 8,76 | 9,74 | 8,62 |
+
+**Interprétation :** l'écart global de R24 avec le reste du portefeuille devient faible dans le dernier scénario. L'écart de R11 se réduit mais reste présent. La composition des portefeuilles compte donc dans la lecture des moyennes ; ces exclusions n'isolent pas un effet causal de la région.
+
 ## 5. Contrôles et limites à conserver
 
 Les contrôles des regroupements ont confirmé la conservation des totaux attendus. Les quatre tableaux de croisement conservent les contrats, les sinistres déclarés, l'exposition et les contrats sinistrés sans montant.
@@ -129,18 +184,25 @@ Les contrôles des regroupements ont confirmé la conservation des totaux attend
 
 ## 6. Priorités et restitution dans Power BI
 
-| Priorité proposée | Pourquoi |
+| Priorité | Action proposée et résultat attendu |
 |---|---|
-| Vérifier les extractions et les définitions pour B12 / véhicules de 0 an | Fréquence élevée et forte proportion de montants manquants se cumulent |
-| Examiner les circonstances des sinistres des profils âge / bonus-malus repérés | Les écarts varient entre les sous-groupes ; une action de prévention demanderait des informations complémentaires |
-| Garder la densité et le poids des gros sinistres dans les comparaisons géographiques | Les classements régionaux diffèrent selon la fréquence, le volume et les coûts observés |
+| B12 / véhicule de 0 an | Faire vérifier les périodes ClaimNb / Exposure et l'extraction des montants ; recalculer les comparaisons après validation. L'écart persiste entre 0,50 et 1 an : ne pas attribuer tout le signal aux expositions très courtes. |
+| R24, véhicules 1-2 ans / bonus-malus 76-100 | Demander les circonstances des 117 sinistres et comparer les autres caractéristiques à celles du même groupe hors R24. Objectif : déterminer si une investigation métier ou une prévention ciblée est justifiée. |
+| R24, coûts | Confirmer le gros sinistre et présenter systématiquement moyenne, médiane et influence du maximum. Ne pas interpréter la moyenne seule comme un coût habituel. |
+| R11, densité 1 001-5 000 / bonus-malus 51-75 | Examiner ce profil de 6 793 contrats en priorité ; vérifier aussi la couverture des montants. Éviter de généraliser aux tranches où les fréquences sont proches ailleurs. |
 
-Le projet [Assurance.pbip](../powerbi/Assurance.pbip) reprend trois pages :
+Ces actions sont proposées, pas réalisées auprès d'un assureur. Aucun gain financier n'a été mesuré et aucun changement de tarif n'est recommandé sur ces seuls résultats.
 
-1. **Vue d'ensemble :** contrats, exposition, sinistres, fréquence, coûts observés et part des contrats sinistrés sans montant.
-2. **Comprendre les segments :** comparaisons B12 / âge du véhicule, âge / bonus-malus, âge du véhicule / exposition et région / densité. Les coûts moyens et médians sont consultables dans le tableau régional de la première page.
-3. **Qualité et limites :** montants non retrouvés, orphelins, écart de nombre de sinistres et influence du plus gros montant.
+Le projet [Assurance.pbip](../powerbi/Assurance.pbip) comporte cinq pages :
 
-Les tables sont exportées dans `data/processed` par la dernière section d'`analyse_approfondie.ipynb`. Les clés et les totaux des CSV ont été contrôlés. Les mesures DAX sont définies à partir des sommes de sinistres et d'exposition, sans moyenne simple des fréquences.
+1. **Vue d'ensemble** : volumes, fréquence, exposition et couverture du portefeuille.
+2. **B12 / véhicules de 0 an** : comparaison des marques selon la durée et scénarios d'exposition.
+3. **R24** : profils, croisement âge du véhicule / bonus-malus, sensibilité et coûts.
+4. **R11** : profils, croisement densité / bonus-malus, sensibilité et coûts.
+5. **Qualité et limites** : montants manquants, orphelins, écart de nombre et priorités.
 
-L'actualisation, l'exécution des mesures et le rendu des tableaux restent à confirmer dans Power BI Desktop. Le [guide d'ouverture](../powerbi/LISEZ_MOI.txt) donne les valeurs de référence à comparer, au global et pour B12 / véhicule de 0 an.
+Les pages d'investigation sont pilotées par leurs menus de filtre. Les clics sur barres ou tableaux ne filtrent pas les autres visuels, pour garder les groupes de comparaison visibles. Les deux régions sont fixées dans leurs mesures ; les menus filtrent simultanément la région et le reste du portefeuille.
+
+Dix CSV sont régénérés dans `data/processed` : trois tables détaillées, un contrôle global et six tableaux d'investigation. Seules les trois tables détaillées sont importées dans Power BI. Les visuels recalculent les ratios et ne font pas de moyenne de fréquences préagrégées.
+
+Les notebooks ont été exécutés. Le contrôle du rendu natif et l'exécution des nouvelles mesures dans Desktop restent à confirmer ; voir le [guide d'ouverture](../powerbi/LISEZ_MOI.txt) et les [requêtes de contrôle](../powerbi/Controles_investigations.dax).

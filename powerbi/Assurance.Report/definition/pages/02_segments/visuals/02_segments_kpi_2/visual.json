@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "02_segments_kpi_2",
   "position": {
-    "x": 730,
-    "y": 204,
-    "z": 25,
-    "height": 110,
-    "width": 331,
-    "tabOrder": 25
+    "x": 810,
+    "y": 200,
+    "z": 8,
+    "height": 104,
+    "width": 371,
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "card",
@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sinistres / 100 années'"
+                  "Value": "'B12 / 0 an : fréquence'"
                 }
               }
             },
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -153,11 +153,11 @@
                       "Entity": "Contrats"
                     }
                   },
-                  "Property": "Frequence pour 100 annees"
+                  "Property": "Frequence B12 zero"
                 }
               },
-              "queryRef": "Contrats.Frequence pour 100 annees",
-              "nativeQueryRef": "Frequence pour 100 annees"
+              "queryRef": "Contrats.Frequence B12 zero",
+              "nativeQueryRef": "Frequence B12 zero"
             }
           ]
         }
@@ -181,7 +181,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "28D"
+                  "Value": "24D"
                 }
               }
             },

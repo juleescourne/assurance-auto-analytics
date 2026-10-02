@@ -1,0 +1,169 @@
+DÉMO VIDÉO — ASSURANCE AUTOMOBILE
+Version du 02/10/2026 — récit aligné sur les cinq pages du rapport.
+Durée cible : 4 à 5 minutes, navigation et pauses comprises.
+
+Lis uniquement les passages « À DIRE ». Les indications « À L'ÉCRAN »
+servent à préparer la capture : elles ne font pas partie du discours.
+
+AVANT DE FILMER
+Ouvre Assurance.pbip, actualise et vérifie les valeurs avec powerbi/LISEZ_MOI.txt.
+Le rendu natif et les nouvelles mesures restent à confirmer dans Desktop.
+Réinitialise les menus sur les cinq pages : tous les chiffres ci-dessous
+correspondent à une absence de filtre utilisateur.
+La page tient dans la fenêtre. Fais défiler les lignes à l’intérieur des tableaux
+pour atteindre les profils commentés ; répète ce mouvement avant la capture.
+Repère à l'avance les lignes des tableaux R24 et R11, quitte à les faire défiler.
+Sur les pages 2 à 4, seuls les menus filtrent les autres visuels : montre les
+résultats avec le curseur. Sur la première page, évite de sélectionner une barre.
+Laisse une courte pause après chaque comparaison pour permettre de lire l'écran.
+
+
+1 — VUE D'ENSEMBLE | POSER LA QUESTION
+Durée indicative : 55 secondes.
+
+À L'ÉCRAN
+Commence sur la vue d'ensemble. Montre R24 dans le graphique des volumes,
+puis sa fréquence dans le tableau régional et la carte « Sinistres / 100 années ».
+Montre ensuite brièvement le nombre de contrats et les années d'exposition.
+
+À DIRE
+« Dans cette étude de cas, R24 concentre environ un quart des sinistres.
+Pourtant, sa fréquence est inférieure à celle du portefeuille.
+Ce décalage résume la question de mon projet : où faut-il vraiment investiguer ?
+
+J'ai simulé une demande de direction technique à partir de données publiques
+d'assurance automobile, avec environ 678 000 contrats.
+J'ai mené le travail du cadrage jusqu'à ce rapport Power BI, en passant par
+les contrôles de qualité et l'analyse avec Python.
+
+Pour comparer les groupes, je rapporte le nombre de sinistres à la durée assurée.
+La référence est d'environ 10 sinistres pour 100 années d'exposition.
+J'ai gardé les contrats et les montants dans deux tables liées, pour éviter
+de compter plusieurs fois l'exposition d'un contrat ayant plusieurs sinistres.
+
+Trois axes ressortent de l'analyse : B12 avec les véhicules de 0 an, R24 et R11. »
+
+
+2 — B12 / VÉHICULES DE 0 AN | TESTER UNE PREMIÈRE EXPLICATION
+Durée indicative : 55 secondes.
+
+À L'ÉCRAN
+Montre « 1 · Situer le signal B12 selon l'âge », puis
+« 2 · Comparer les marques à durée proche » : tranche « 0,50-1 an ».
+Dans le tableau détaillé, repère la ligne B12 / « 0,50-1 an » et son taux
+sans montant. Ne désigne pas la carte à 87,10 % lorsque tu annonces 75 % :
+la carte couvre toutes les durées, la ligne seulement la tranche commentée.
+
+À DIRE
+« B12 est un code de marque. Sa fréquence élevée apparaît surtout pour
+les véhicules dont l'âge est enregistré à zéro an.
+
+J'ai d'abord vérifié si ce signal se limitait aux expositions très courtes.
+Même parmi les contrats observés plus de six mois et jusqu'à un an,
+la fréquence reste d'environ 21 pour B12, contre 10 pour les autres marques,
+toujours parmi les véhicules de 0 an.
+
+Les durées très courtes ne suffisent donc pas à expliquer tout l'écart.
+Mais, dans cette tranche, 75 % des contrats sinistrés B12 n'ont pas de montant
+retrouvé. Cela limite l'évaluation de leur coût.
+
+Je propose de vérifier les périodes couvertes et l'extraction des montants,
+puis d'examiner les circonstances des sinistres de ce groupe. »
+
+
+3 — R24 | CHERCHER CE QUE MASQUE LA MOYENNE
+Durée indicative : 50 secondes.
+
+À L'ÉCRAN
+Montre la carte de fréquence R24 : 8,96.
+Dans « 3 · Croiser deux caractéristiques avant de conclure », montre la ligne
+véhicule « 1-2 ans » / bonus-malus « 76-100 » : 16,96 contre 12,81 hors R24.
+Termine sur « R24 · Poids du plus gros coût », puis le tableau des coûts en bas.
+
+À DIRE
+« Revenons à R24. Sa moyenne basse ne signifie pas que tous ses profils
+présentent une faible fréquence.
+
+Les véhicules de un à deux ans, avec un bonus-malus de 76 à 100, atteignent
+environ 17 sinistres pour 100 années, contre 13 pour les mêmes tranches
+dans les autres régions. Ce groupe représente environ 1 500 contrats
+et 117 sinistres.
+
+La suite proposée est donc précise : examiner ces sinistres et comparer
+les autres caractéristiques des contrats avant d'envisager une prévention ciblée.
+
+Sur les coûts, un seul sinistre représente aussi 21 % du montant observé
+de R24. Je le conserve, mais je présente la médiane et la moyenne sans
+ce maximum pour montrer son influence sur la lecture des résultats. »
+
+
+4 — R11 | PRÉCISER OÙ LA PRIORITÉ DEMEURE
+Durée indicative : 45 secondes.
+
+À L'ÉCRAN
+Montre le tableau croisé, ligne densité « 1 001-5 000 » / bonus-malus « 51-75 » :
+14,77 en R11 contre 12,26 hors R11, sur 6 793 contrats en R11.
+Puis montre « 5 001-20 000 » / « 51-75 » : 12,61 contre 12,70.
+Prévois une pause si tu dois faire défiler le tableau pour atteindre cette ligne.
+
+À DIRE
+« R11 a, au contraire, une fréquence régionale supérieure à la moyenne.
+J'ai croisé la densité de population avec le bonus-malus pour préciser ce constat.
+
+Dans la tranche de densité de 1 001 à 5 000, avec un bonus-malus de 51 à 75,
+la fréquence atteint environ 15, contre 12 pour les mêmes tranches ailleurs.
+Cela concerne près de 6 800 contrats en R11.
+
+Dans la tranche de densité suivante, avec le même bonus-malus, les fréquences
+deviennent presque identiques.
+
+Je retiens donc le premier profil comme priorité d'examen, plutôt que
+de proposer une même action pour tous les contrats de la région. »
+
+
+5 — QUALITÉ ET LIMITES | ABOUTIR À UNE SUITE CONCRÈTE
+Durée indicative : 45 secondes.
+
+À L'ÉCRAN
+Montre la carte « Part sans montant (%) » : 26,76 %.
+Termine sur l'encadré « Priorités proposées après investigation ».
+Laisse cet encadré visible quelques secondes après la dernière phrase.
+
+À DIRE
+« Une limite reste importante : au global, environ 27 % des contrats sinistrés
+n'ont pas de montant retrouvé. Je conserve cette information dans le rapport,
+sans remplacer les coûts inconnus par zéro.
+
+Les comparaisons restent descriptives : elles ne prouvent pas une cause,
+et les groupes peuvent encore différer sur d'autres caractéristiques.
+
+Pour une direction technique, je propose trois suites : vérifier les sources
+pour B12, examiner les sinistres du profil repéré en R24 et approfondir
+le profil densité et bonus-malus retenu en R11.
+
+L'apport du projet, c'est de passer d'un classement général à des groupes
+précis à examiner, avec leurs effectifs, leurs comparateurs et leurs limites.
+Les notebooks et la documentation permettent de retrouver chaque résultat. »
+
+
+REPÈRES PERSONNELS — NE PAS LIRE DANS LA VIDÉO
+
+Les chiffres du discours sont arrondis pour l'oral. Les tableaux affichent
+les valeurs exactes : ne cherche pas à réciter toutes les décimales.
+
+- B12, véhicules de 0 an, exposition ]0,50 ; 1] : fréquence 21,33 contre 9,68 ;
+  7 237 contrats B12 ; 75,15 % de leurs contrats sinistrés sans montant.
+- R24, véhicule 1-2 ans / bonus-malus 76-100 : 1 531 contrats, 117 sinistres,
+  fréquence 16,96 contre 12,81 ; 8,49 % des contrats sinistrés sans montant.
+- R11, densité 1 001-5 000 / bonus-malus 51-75 : 6 793 contrats,
+  fréquence 14,77 contre 12,26 ; 34,99 % des contrats sinistrés sans montant.
+- « Ailleurs » exclut la région étudiée. Les tranches comparées sont les mêmes,
+  mais les profils ne sont pas identiques sur toutes les caractéristiques.
+- Les paires régionales affichées ont au moins 1 000 contrats et 500 années
+  de chaque côté. Ce sont des seuils de lecture, pas des tests statistiques.
+- Le projet est personnel, la demande métier est simulée. Les recommandations
+  n'ont pas été mises en œuvre chez un assureur ; aucun gain n'a été mesuré.
+
+Pour répéter, retiens le fil : question → durée → sous-groupes → comparaison
+→ actions proposées. Garde tes mots si tu préfères, en conservant les unités,
+les périmètres et la différence entre résultat observé et recommandation.

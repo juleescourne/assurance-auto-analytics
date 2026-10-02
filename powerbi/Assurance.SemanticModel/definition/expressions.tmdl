@@ -1,0 +1,5 @@
+/// Dossier contenant les CSV exportés par analyse_approfondie.ipynb.
+expression DossierDonnees = "D:\formation\recherche_emploi_rouen\assurance\data\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 8536c1dc-494e-4b81-98e2-cfe0ac021ece
+
+	annotation PBI_ResultType = Text

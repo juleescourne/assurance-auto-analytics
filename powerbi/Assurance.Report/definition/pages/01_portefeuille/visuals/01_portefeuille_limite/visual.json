@@ -3,10 +3,10 @@
   "name": "01_portefeuille_limite",
   "position": {
     "x": 28,
-    "y": 328,
+    "y": 316,
     "z": 12,
-    "height": 42,
-    "width": 1384,
+    "height": 44,
+    "width": 1544,
     "tabOrder": 12
   },
   "visual": {
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -149,7 +149,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Lecture : un grand volume de sinistres ne signifie pas une fréquence élevée. Les coûts affichés couvrent uniquement les sinistres rapprochés.",
+                    "value": "Fréquence = sinistres / années × 100. Sans montant = contrats sinistrés sans montant rattaché / contrats sinistrés. Coûts partiels.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "11pt",

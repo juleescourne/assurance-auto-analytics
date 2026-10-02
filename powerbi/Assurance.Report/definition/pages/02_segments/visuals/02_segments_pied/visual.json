@@ -3,11 +3,11 @@
   "name": "02_segments_pied",
   "position": {
     "x": 28,
-    "y": 1034,
-    "z": 32,
-    "height": 30,
-    "width": 1384,
-    "tabOrder": 32
+    "y": 1044,
+    "z": 15,
+    "height": 28,
+    "width": 1544,
+    "tabOrder": 15
   },
   "visual": {
     "visualType": "textbox",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -149,7 +149,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Barre absente : groupe sans données ou sous le seuil affiché, jamais une fréquence supposée nulle. | Priorité : vérifier B12 / véhicules de 0 an.",
+                    "value": "Les menus filtrent les comparaisons ; les clics sur barres et tableaux ne les modifient pas. Réinitialiser les menus avant la démo.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "10pt",

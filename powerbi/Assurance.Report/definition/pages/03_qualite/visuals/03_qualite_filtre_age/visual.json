@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "03_qualite_filtre_age",
   "position": {
-    "x": 636,
-    "y": 118,
+    "x": 810,
+    "y": 120,
     "z": 37,
-    "height": 68,
-    "width": 384,
-    "tabOrder": 37
+    "height": 64,
+    "width": 371,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "slicer",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -205,6 +205,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }

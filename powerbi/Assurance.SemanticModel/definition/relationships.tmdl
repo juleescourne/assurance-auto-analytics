@@ -1,0 +1,3 @@
+relationship Contrats_vers_Sinistres
+	fromColumn: Sinistres.IDpol
+	toColumn: Contrats.IDpol

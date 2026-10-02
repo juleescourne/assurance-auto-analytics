@@ -1,7 +1,7 @@
 # Note de cadrage — Assurance responsabilité civile automobile
 
 **Projet :** étude de cas fictive sur les données publiques freMTPL2.
-**Mise à jour :** 01/10/2026.
+**Mise à jour :** 02/10/2026.
 **Échéance cible initiale :** 10 octobre 2026.
 
 ## 1. Problème
@@ -17,6 +17,9 @@ Dans cette mise en situation, la direction technique valide les définitions et 
 - Quels segments concentrent le nombre de sinistres et les montants observés ?
 - Comment ces résultats changent-ils lorsque l'on tient compte de l'exposition et du coût moyen ?
 - Quels segments faut-il approfondir, compte tenu des effectifs et des limites des données ?
+- Pour B12 / véhicules de 0 an, l'écart reste-t-il présent à durée d'exposition proche ?
+- Dans R24, quels sous-groupes méritent une investigation malgré une fréquence globale basse ?
+- Dans R11, où l'écart reste-t-il visible en comparant densité et bonus-malus ?
 
 ## 4. Périmètre
 
@@ -41,8 +44,8 @@ Je conserve tous les contrats de `freq`. Les six contrats présents uniquement d
 - [Rapport qualité](Qualité.md) et [notebook de contrôle](../notebook/data_quality.ipynb).
 - [Analyse globale](../notebook/analyse_globale.ipynb) et [analyse approfondie](../notebook/analyse_approfondie.ipynb).
 - [Synthèse des résultats, limites et priorités](Analyse.md).
-- Quatre CSV régénérables dans `data/processed`, pour Power BI et le contrôle des KPI.
-- [Projet Power BI](../powerbi/Assurance.pbip) : modèle et trois pages de rapport.
+- Dix CSV régénérables dans `data/processed` : trois tables du modèle, un contrôle global et six tableaux d’investigation.
+- [Projet Power BI](../powerbi/Assurance.pbip) : modèle et cinq pages de rapport.
 - [README](../README.md) : présentation et instructions pour reproduire le projet.
 
 Le sujet initial proposait aussi du SQL et des tests statistiques. Ces parties n'ont pas été réalisées dans ce périmètre. Le rapport est fourni au format projet `.pbip` ; aucun fichier `.pbix` n'est fourni.

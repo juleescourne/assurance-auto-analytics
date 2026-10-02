@@ -23,7 +23,7 @@ for chemin in fichiers:
         erreurs.append(f'{nom} : donnée locale à exclure de Git')
     if '/.pbi/' in nom or chemin.suffix in {'.pbix', '.pbit'}:
         erreurs.append(f'{nom} : cache ou binaire local à exclure de Git')
-    if chemin.suffix not in {'.py', '.md', '.ipynb', '.json', '.bim', '.pbip', '.pbir', '.pbism'}:
+    if chemin.suffix not in {'.py', '.md', '.ipynb', '.json', '.bim', '.pbip', '.pbir', '.pbism', '.tmdl'}:
         continue
     contenu = chemin.read_text(encoding='utf-8-sig')
     if '\ufffd' in contenu:
@@ -55,9 +55,39 @@ if notebooks != 3:
     erreurs.append(f'Trois notebooks attendus, {notebooks} trouvés')
 
 # Vérifier que les visuels utilisent des champs qui existent dans le modèle.
-modele = json.loads((racine / 'powerbi/Assurance.SemanticModel/model.bim').read_text(encoding='utf-8'))['model']
-colonnes = {t['name']: {c['name'] for c in t['columns']} for t in modele['tables']}
-mesures = {t['name']: {m['name'] for m in t.get('measures', [])} for t in modele['tables']}
+dossier_modele = racine / 'powerbi/Assurance.SemanticModel'
+fichier_bim = dossier_modele / 'model.bim'
+if fichier_bim.exists():
+    modele = json.loads(fichier_bim.read_text(encoding='utf-8'))['model']
+    colonnes = {t['name']: {c['name'] for c in t['columns']} for t in modele['tables']}
+    mesures = {t['name']: {m['name'] for m in t.get('measures', [])} for t in modele['tables']}
+else:
+    # Desktop peut enregistrer le même modèle en TMDL. On relève les noms
+    # déclarés pour contrôler les visuels, sans prétendre compiler le DAX.
+    nom_tmdl = r"('(?:[^']|'')*'|[^\s=]+)"
+
+    def lire_nom(nom):
+        return nom[1:-1].replace("''", "'") if nom.startswith("'") else nom
+
+    colonnes, mesures = {}, {}
+    for chemin in sorted((dossier_modele / 'definition/tables').glob('*.tmdl')):
+        texte = chemin.read_text(encoding='utf-8-sig')
+        declaration = re.search(r'^table\s+' + nom_tmdl, texte, re.MULTILINE)
+        if not declaration:
+            erreurs.append(f'{chemin.name} : déclaration de table absente')
+            continue
+        table = lire_nom(declaration.group(1))
+        colonnes[table], mesures[table] = set(), set()
+        for type_champ, nom in re.findall(r'^\t(column|measure)\s+' + nom_tmdl, texte, re.MULTILINE):
+            inventaire = colonnes if type_champ == 'column' else mesures
+            inventaire[table].add(lire_nom(nom))
+    if not colonnes:
+        erreurs.append('Aucun modèle BIM ou table TMDL trouvé')
+
+# Le fichier d'entrée doit ouvrir le rapport versionné, pas une copie locale.
+entree = json.loads((racine / 'powerbi/Assurance.pbip').read_text(encoding='utf-8'))
+if entree['artifacts'][0]['report']['path'] != 'Assurance.Report':
+    erreurs.append('Assurance.pbip ne pointe pas vers Assurance.Report')
 
 def verifier_champs(objet, nom):
     if isinstance(objet, dict):

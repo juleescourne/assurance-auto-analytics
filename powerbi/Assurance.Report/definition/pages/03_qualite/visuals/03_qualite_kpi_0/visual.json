@@ -3,11 +3,11 @@
   "name": "03_qualite_kpi_0",
   "position": {
     "x": 28,
-    "y": 204,
+    "y": 200,
     "z": 39,
-    "height": 110,
-    "width": 214,
-    "tabOrder": 39
+    "height": 104,
+    "width": 240.66666666666666,
+    "tabOrder": 6
   },
   "visual": {
     "visualType": "card",
@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sinistrés sans montant'"
+                  "Value": "'Contrats sans montant'"
                 }
               }
             },
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -181,7 +181,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "28D"
+                  "Value": "24D"
                 }
               }
             },

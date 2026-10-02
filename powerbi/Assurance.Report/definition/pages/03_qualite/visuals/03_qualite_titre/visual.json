@@ -5,9 +5,9 @@
     "x": 28,
     "y": 20,
     "z": 33,
-    "height": 55,
-    "width": 1384,
-    "tabOrder": 33
+    "height": 54,
+    "width": 1544,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "textbox",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -149,10 +149,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Qualité des données | Lire les coûts avec prudence",
+                    "value": "Qualité | Quelles vérifications prioriser ?",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "26pt",
+                      "fontSize": "24pt",
                       "color": "#FFFFFF",
                       "fontWeight": "bold"
                     }

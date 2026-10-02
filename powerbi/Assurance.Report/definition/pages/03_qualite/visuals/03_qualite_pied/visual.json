@@ -3,11 +3,11 @@
   "name": "03_qualite_pied",
   "position": {
     "x": 28,
-    "y": 1035,
+    "y": 1044,
     "z": 51,
     "height": 28,
-    "width": 1384,
-    "tabOrder": 51
+    "width": 1544,
+    "tabOrder": 18
   },
   "visual": {
     "visualType": "textbox",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },

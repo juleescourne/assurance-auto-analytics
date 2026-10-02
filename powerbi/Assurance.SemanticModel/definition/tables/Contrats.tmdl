@@ -1,0 +1,731 @@
+/// Une ligne par contrat de freq. Source des expositions, sinistres déclarés et segments.
+table Contrats
+	lineageTag: 9d6dac2d-7f37-53ba-b76d-6a94fd1ebd68
+
+	/// Nombre de contrats dans le contexte de filtre courant.
+	measure 'Nombre de contrats' = COALESCE(COUNTROWS(Contrats), 0)
+		formatString: #,0
+		displayFolder: Portefeuille
+		lineageTag: e68ffc23-8040-549e-a3b9-037d7f4668c3
+
+	/// Durée totale assurée, en années. Ne pas additionner après une jointure au grain sinistre.
+	measure 'Exposition annees' = SUM(Contrats[Exposure])
+		formatString: #,0.00
+		displayFolder: Portefeuille
+		lineageTag: 95171ca9-e081-5510-9673-ae37a0cc0866
+
+	/// Sinistres déclarés dans freq ; sert à la fréquence.
+	measure 'Sinistres declares' = SUM(Contrats[ClaimNb])
+		formatString: #,0
+		displayFolder: Portefeuille
+		lineageTag: ab95465d-6d07-558f-a1b6-5634524c60f0
+
+	/// Ratio des sommes : sinistres pour 100 années, et non pourcentage de contrats.
+	measure 'Frequence pour 100 annees' = 100 * DIVIDE([Sinistres declares], [Exposition annees])
+		formatString: 0.00
+		displayFolder: Portefeuille
+		lineageTag: b2646116-6a9b-5103-b34c-8a5f41bf295e
+
+	/// Référence sur tous les contrats, indépendante des filtres de segments.
+	measure 'Frequence portefeuille' = CALCULATE([Frequence pour 100 annees], REMOVEFILTERS(Contrats))
+		formatString: 0.00
+		displayFolder: Portefeuille
+		lineageTag: ad349310-e735-57f5-8f8c-3d524d3535ab
+
+	measure 'Contrats sinistres' = COALESCE(CALCULATE(COUNTROWS(Contrats), KEEPFILTERS(Contrats[ClaimNb] > 0)), 0)
+		formatString: #,0
+		displayFolder: Qualite
+		lineageTag: c00543da-b1d6-5014-8000-8ff1ca25084c
+
+	measure 'Contrats sans montant' = COALESCE(CALCULATE(COUNTROWS(Contrats), KEEPFILTERS(Contrats[Status] = "Montant non retrouvé")), 0)
+		formatString: #,0
+		displayFolder: Qualite
+		lineageTag: 4c833793-c9e6-5c47-ac6d-92a199b17386
+
+	/// Part des contrats sinistrés absents de sev. Le contrat avec un écart de nombre est suivi séparément.
+	measure 'Part sans montant' = DIVIDE([Contrats sans montant], [Contrats sinistres])
+		formatString: 0.00%
+		displayFolder: Qualite
+		lineageTag: e6f014b5-3fed-597f-a02a-c19de4ea167e
+
+	measure 'Contrats nombre different' = COALESCE(CALCULATE(COUNTROWS(Contrats), KEEPFILTERS(Contrats[Status] = "Nombre différent")), 0)
+		formatString: #,0
+		displayFolder: Qualite
+		lineageTag: a1b1fd24-5721-586c-ad10-8998944a49bb
+
+	measure 'Sinistres observes' = COALESCE(COUNTROWS(Sinistres), 0)
+		formatString: #,0
+		displayFolder: Couts observes
+		lineageTag: 2861e07e-a754-5599-943c-dba5625ac330
+
+	/// Somme des seuls montants rapprochés. Aucune imputation des coûts absents.
+	measure 'Montant observe' = SUM(Sinistres[ClaimAmount])
+		formatString: #,0.00 "€"
+		displayFolder: Couts observes
+		lineageTag: 91c04324-0687-50f1-a9ea-2a693c6a747c
+
+	measure 'Cout moyen observe' = DIVIDE([Montant observe], [Sinistres observes])
+		formatString: #,0.00 "€"
+		displayFolder: Couts observes
+		lineageTag: 34604e6d-f054-5076-8c1f-08f2c1c43704
+
+	/// Médiane des montants individuels, pas des totaux par contrat.
+	measure 'Cout median observe' = MEDIAN(Sinistres[ClaimAmount])
+		formatString: #,0.00 "€"
+		displayFolder: Couts observes
+		lineageTag: 3ddeb81f-37b5-5b6f-bd4a-d366122e7f36
+
+	measure 'Cout observe par annee' = DIVIDE([Montant observe], [Exposition annees])
+		formatString: #,0.00 "€"
+		displayFolder: Couts observes
+		lineageTag: 973bae68-d29f-5b0e-a67f-26d3639e76c5
+
+	measure 'Plus gros sinistre' = MAX(Sinistres[ClaimAmount])
+		formatString: #,0.00 "€"
+		displayFolder: Couts observes
+		lineageTag: 59fd5303-2bf3-5af9-85db-e27b1d192cfa
+
+	measure 'Part du plus gros sinistre' = DIVIDE([Plus gros sinistre], [Montant observe])
+		formatString: 0.00%
+		displayFolder: Couts observes
+		lineageTag: 2db39e96-d67f-52ec-bc30-4fece7c01e34
+
+	/// Diagnostic : retirer un seul montant maximal dans le contexte courant. Aucune ligne source supprimée.
+	measure 'Moyenne sans le plus gros' = IF([Sinistres observes] > 1, DIVIDE([Montant observe] - [Plus gros sinistre], [Sinistres observes] - 1))
+		formatString: #,0.00 "€"
+		displayFolder: Couts observes
+		lineageTag: 962741b4-4a99-5247-9045-571e988912c8
+
+	measure 'Contrats orphelins' = COALESCE(DISTINCTCOUNT(Orphelins[IDpol]), 0)
+		formatString: #,0
+		displayFolder: Orphelins - source complete
+		lineageTag: 91073cbf-262c-5b87-8186-c8dac4f1609c
+
+	measure 'Lignes orphelines' = COALESCE(COUNTROWS(Orphelins), 0)
+		formatString: #,0
+		displayFolder: Orphelins - source complete
+		lineageTag: c1b6aa76-08f6-5555-b5b7-60dfea41df09
+
+	measure 'Montant orphelin' = SUM(Orphelins[ClaimAmount])
+		formatString: #,0.00 "€"
+		displayFolder: Orphelins - source complete
+		lineageTag: b9d95808-117e-5002-9994-b79f33431efe
+
+	/// Critères exploratoires : 10000 contrats, 1000 années et fréquence +20% par rapport au portefeuille. Pas un test statistique.
+	measure 'Priorite exploration' = IF([Nombre de contrats] >= 10000 && [Exposition annees] >= 1000 && [Frequence pour 100 annees] >= 1.2 * [Frequence portefeuille], "À approfondir", "")
+		displayFolder: Exploration
+		lineageTag: 05b5b87c-4a85-5555-b2d6-02a4c8664aec
+
+	/// Masque uniquement la fréquence du visuel sous 1000 années d’exposition ; les contrats restent dans le modèle.
+	measure 'Frequence affichable' = IF([Exposition annees] >= 1000, [Frequence pour 100 annees])
+		formatString: 0.00
+		displayFolder: Exploration
+		lineageTag: 0a465d59-e265-5c88-b9fb-91997f339f36
+
+	/// Affichage des sous-groupes avec au moins 1000 contrats et 500 années. Seuils de lecture, pas un test.
+	measure 'Frequence age bonus' = IF([Nombre de contrats] >= 1000 && [Exposition annees] >= 500, [Frequence pour 100 annees])
+		formatString: 0.00
+		displayFolder: Exploration
+		lineageTag: 612b4860-8990-5c0d-bc28-953fbade398f
+
+	measure 'Rang region sinistres' = RANKX(ALLSELECTED(Contrats[Region]), [Sinistres declares], , DESC, DENSE)
+		formatString: #,0
+		displayFolder: Exploration
+		lineageTag: 7368aa75-e6ac-58bc-9f20-adce0e1addc4
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Contrats R24' = CALCULATE([Nombre de contrats], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: ac533324-5249-5f47-87ba-3f90dc12d9de
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sinistres R24' = CALCULATE([Sinistres declares], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: ed90cd68-028b-52c4-86f8-086503434284
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Exposition R24' = CALCULATE([Exposition annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: #,0.00
+		displayFolder: Investigations
+		lineageTag: 441c176c-9e69-5a40-b682-7f2e19079997
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Frequence R24' = CALCULATE([Frequence pour 100 annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 6ae0c4a8-5c01-5c51-9dd2-5de5520351b2
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sans montant R24' = CALCULATE([Part sans montant], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: 2a8f8823-d0e0-5cde-a377-8fcb348cf27e
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Montant R24' = CALCULATE([Montant observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: #,0 "€"
+		displayFolder: Investigations
+		lineageTag: 8d98bb9c-d1a2-5f4e-978d-d365788d50c7
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne R24' = CALCULATE([Cout moyen observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 24ec3534-8dce-5ce1-97c3-77c54de2f83e
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Mediane R24' = CALCULATE([Cout median observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 45dc2b0e-e6b3-5d3f-aab2-4f7a553f5003
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne sans maximum R24' = CALCULATE([Moyenne sans le plus gros], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 34f7de91-7097-58db-8f1d-327c225610be
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Poids maximum R24' = CALCULATE([Part du plus gros sinistre], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: aa2d75c4-e234-58a7-abe3-c24d51f9600f
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence R24 sans B12 zero' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0)))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 833b3262-4a09-58d8-be7b-62476bedb008
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence R24 sensibilite combinee' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0) && Contrats[Exposure] > 0.1))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R24")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: c7bd97b6-4c84-5398-9e04-76a31355f223
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Contrats hors R24' = CALCULATE([Nombre de contrats], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: 44d92db2-1dec-5d41-8cea-fdab137887ad
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sinistres hors R24' = CALCULATE([Sinistres declares], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: 596c1cab-fdee-53c8-9d7d-beac898600ba
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Exposition hors R24' = CALCULATE([Exposition annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: #,0.00
+		displayFolder: Investigations
+		lineageTag: 1b259827-dcbd-50ef-99f7-5a5708017b40
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Frequence hors R24' = CALCULATE([Frequence pour 100 annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 481adf2b-7735-59ab-a3b6-293e7746b01f
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sans montant hors R24' = CALCULATE([Part sans montant], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: 4362000d-5089-5be4-8864-708ef555b66d
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Montant hors R24' = CALCULATE([Montant observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: #,0 "€"
+		displayFolder: Investigations
+		lineageTag: a7278c06-6b40-512f-8030-dca7223d7582
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne hors R24' = CALCULATE([Cout moyen observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: d5f8aa10-2ffb-5b0b-b520-dfee27591d26
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Mediane hors R24' = CALCULATE([Cout median observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: f7674ae7-2f76-5bb3-9bc0-f66783b425a3
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne sans maximum hors R24' = CALCULATE([Moyenne sans le plus gros], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 3d603a97-6866-51ac-9275-967f824d2050
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Poids maximum hors R24' = CALCULATE([Part du plus gros sinistre], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: a4e87d97-17ef-5d96-bebd-7ae9a616d6d8
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence hors R24 sans B12 zero' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0)))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 7a37ca97-f120-5535-8211-bbb70b1797cf
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence hors R24 sensibilite combinee' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0) && Contrats[Exposure] > 0.1))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R24")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 2d3283eb-e1d4-5d8f-8345-ae054d51fd82
+
+	/// Chaque côté doit avoir 1000 contrats et 500 années. Seuil de lecture, pas test de significativité.
+	measure 'Comparaison lisible R24' = IF([Contrats R24] >= 1000 && [Exposition R24] >= 500 && [Contrats hors R24] >= 1000 && [Exposition hors R24] >= 500, 1, 0)
+		formatString: 0
+		displayFolder: Investigations
+		lineageTag: 58e78faf-6216-55ff-be9d-c0c5a6d7b4d0
+
+	/// Une paire absente est masquée des graphiques, jamais remplacée par zéro.
+	measure 'Frequence comparable R24' = IF([Comparaison lisible R24] = 1, [Frequence R24])
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: fd971354-36e7-538d-bb69-70fd90e25996
+
+	/// Une paire absente est masquée des graphiques, jamais remplacée par zéro.
+	measure 'Frequence comparable hors R24' = IF([Comparaison lisible R24] = 1, [Frequence hors R24])
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 3b901ee7-44af-599c-ac81-20a261ac8fe2
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Contrats R11' = CALCULATE([Nombre de contrats], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: 274dbf5c-5df5-5186-93d0-a5a20e5e4b46
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sinistres R11' = CALCULATE([Sinistres declares], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: 0c7d50f3-0524-545e-a92c-d2b9d92a37a1
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Exposition R11' = CALCULATE([Exposition annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: #,0.00
+		displayFolder: Investigations
+		lineageTag: 06895598-f396-56be-8804-3cb03b281106
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Frequence R11' = CALCULATE([Frequence pour 100 annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 213d42d5-d441-5d5c-947d-f5badd036e66
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sans montant R11' = CALCULATE([Part sans montant], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: 862f7fd3-f9e0-5c15-9159-e5cbf1fc0b9b
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Montant R11' = CALCULATE([Montant observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: #,0 "€"
+		displayFolder: Investigations
+		lineageTag: 2ad691bf-933b-522e-92c4-e6df5844d8c2
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne R11' = CALCULATE([Cout moyen observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 0bd43f9d-03fd-5403-83f0-627c8e55e556
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Mediane R11' = CALCULATE([Cout median observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: f57ce275-d518-5e7a-a160-2fcb196bab33
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne sans maximum R11' = CALCULATE([Moyenne sans le plus gros], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 97ca1645-3583-5235-ae82-b75f214a53c9
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Poids maximum R11' = CALCULATE([Part du plus gros sinistre], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: 6185eabf-a274-5f9d-b7ce-0f43660b32c3
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence R11 sans B12 zero' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0)))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 3bdcad5a-599f-5ded-83ea-16487ae12e6d
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence R11 sensibilite combinee' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0) && Contrats[Exposure] > 0.1))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] = "R11")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 6837d954-9abe-5496-a5b4-92f5b5282809
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Contrats hors R11' = CALCULATE([Nombre de contrats], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: 79a94555-0688-5c65-8f67-9e2446ba1b6e
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sinistres hors R11' = CALCULATE([Sinistres declares], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: 8fc5d6cd-c999-59c1-807e-b82edda6babd
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Exposition hors R11' = CALCULATE([Exposition annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: #,0.00
+		displayFolder: Investigations
+		lineageTag: 5e72ec80-64c7-503b-8091-536cc37005f8
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Frequence hors R11' = CALCULATE([Frequence pour 100 annees], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 050ba62b-9cea-587f-9ff6-1a3c1256918a
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Sans montant hors R11' = CALCULATE([Part sans montant], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: 72a54a79-e85b-5340-9355-802b646ecb28
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Montant hors R11' = CALCULATE([Montant observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: #,0 "€"
+		displayFolder: Investigations
+		lineageTag: 8b37f1ce-6de3-5d68-a303-101065c0be66
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne hors R11' = CALCULATE([Cout moyen observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 56d1ffce-5b98-544a-bf97-f6a1a5c72a82
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Mediane hors R11' = CALCULATE([Cout median observe], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 64fd5ff8-29a0-5285-a35b-b300efbcec9d
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Moyenne sans maximum hors R11' = CALCULATE([Moyenne sans le plus gros], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: #,0.00 "€"
+		displayFolder: Investigations
+		lineageTag: 7657b112-2f46-53e3-b95e-aef5b18b5c09
+
+	/// Région fixée ; les autres filtres et les tranches restent actifs. Hors région exclut la région étudiée.
+	measure 'Poids maximum hors R11' = CALCULATE([Part du plus gros sinistre], REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: d0ca8b0b-1a2f-5b2b-b598-b3c57edd702c
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence hors R11 sans B12 zero' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0)))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: b988256e-4b56-53e8-bc2a-aaf1ea5255b8
+
+	/// Scénario de sensibilité uniquement ; les données sources restent entières.
+	measure 'Frequence hors R11 sensibilite combinee' = CALCULATE(CALCULATE([Frequence pour 100 annees], KEEPFILTERS(FILTER(Contrats, NOT(Contrats[VehBrand] = "B12" && Contrats[VehAge] = 0) && Contrats[Exposure] > 0.1))), REMOVEFILTERS(Contrats[Region], Contrats[GroupeRegion]), Contrats[Region] <> "R11")
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: e1600a27-2783-5fc9-b3c2-12adb6ab4ee4
+
+	/// Chaque côté doit avoir 1000 contrats et 500 années. Seuil de lecture, pas test de significativité.
+	measure 'Comparaison lisible R11' = IF([Contrats R11] >= 1000 && [Exposition R11] >= 500 && [Contrats hors R11] >= 1000 && [Exposition hors R11] >= 500, 1, 0)
+		formatString: 0
+		displayFolder: Investigations
+		lineageTag: d66b09bc-cc12-5703-9a47-3bc159e26f43
+
+	/// Une paire absente est masquée des graphiques, jamais remplacée par zéro.
+	measure 'Frequence comparable R11' = IF([Comparaison lisible R11] = 1, [Frequence R11])
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 0fbc2169-9c25-5091-bc76-38b14e21b956
+
+	/// Une paire absente est masquée des graphiques, jamais remplacée par zéro.
+	measure 'Frequence comparable hors R11' = IF([Comparaison lisible R11] = 1, [Frequence hors R11])
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 68e8dea4-0cf8-59c9-b03c-744a8c55076b
+
+	/// Cartes B12 / véhicule codé 0 an dans la sélection courante.
+	measure 'Contrats B12 zero' = CALCULATE([Nombre de contrats], KEEPFILTERS(Contrats[VehBrand] = "B12"), KEEPFILTERS(Contrats[VehAge] = 0))
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: ed22fb62-c332-56a1-98e3-bc00e9e5b300
+
+	/// Cartes B12 / véhicule codé 0 an dans la sélection courante.
+	measure 'Sinistres B12 zero' = CALCULATE([Sinistres declares], KEEPFILTERS(Contrats[VehBrand] = "B12"), KEEPFILTERS(Contrats[VehAge] = 0))
+		formatString: #,0
+		displayFolder: Investigations
+		lineageTag: 725d6b24-09b2-5565-98e4-2dd234b2ee57
+
+	/// Cartes B12 / véhicule codé 0 an dans la sélection courante.
+	measure 'Exposition B12 zero' = CALCULATE([Exposition annees], KEEPFILTERS(Contrats[VehBrand] = "B12"), KEEPFILTERS(Contrats[VehAge] = 0))
+		formatString: #,0.00
+		displayFolder: Investigations
+		lineageTag: 1c8ec476-6408-5485-a83e-eb0667b35e34
+
+	/// Cartes B12 / véhicule codé 0 an dans la sélection courante.
+	measure 'Frequence B12 zero' = CALCULATE([Frequence pour 100 annees], KEEPFILTERS(Contrats[VehBrand] = "B12"), KEEPFILTERS(Contrats[VehAge] = 0))
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: f3dbb4ba-27d3-5a84-be3f-fb119422c132
+
+	/// Cartes B12 / véhicule codé 0 an dans la sélection courante.
+	measure 'Sans montant B12 zero' = CALCULATE([Part sans montant], KEEPFILTERS(Contrats[VehBrand] = "B12"), KEEPFILTERS(Contrats[VehAge] = 0))
+		formatString: 0.00%
+		displayFolder: Investigations
+		lineageTag: 83ff6da3-7640-5fe5-b370-411d668e4fe5
+
+	/// Véhicules de 0 an ; la marque est donnée par la ligne du tableau.
+	measure 'Frequence zero toutes durees' = CALCULATE([Frequence pour 100 annees], KEEPFILTERS(Contrats[VehAge] = 0))
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 01870005-6fe0-5c73-b0e1-77dd3b128723
+
+	/// Véhicules de 0 an ; la marque est donnée par la ligne du tableau.
+	measure 'Frequence zero plus 0.10' = CALCULATE([Frequence pour 100 annees], KEEPFILTERS(Contrats[VehAge] = 0) , KEEPFILTERS(Contrats[Exposure] > 0.1))
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 3b22b66a-d2e2-5d2a-8f8d-113d87e5cebb
+
+	/// Véhicules de 0 an ; la marque est donnée par la ligne du tableau.
+	measure 'Frequence zero plus 0.50' = CALCULATE([Frequence pour 100 annees], KEEPFILTERS(Contrats[VehAge] = 0) , KEEPFILTERS(Contrats[Exposure] > 0.5))
+		formatString: 0.00
+		displayFolder: Investigations
+		lineageTag: 6f845d24-9c11-5096-838b-a32f340d67a8
+
+	column IDpol
+		dataType: int64
+		isKey
+		formatString: #,0
+		lineageTag: ce6634d3-6ed0-5537-87f8-9f3710faaf65
+		summarizeBy: none
+		sourceColumn: IDpol
+
+	column ClaimNb
+		dataType: int64
+		formatString: #,0
+		lineageTag: f4c70362-01a3-59e4-b6d6-2e5cffa92173
+		summarizeBy: none
+		sourceColumn: ClaimNb
+
+	column Exposure
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f8fa1a80-c781-560d-bc43-1a0533e79b17
+		summarizeBy: none
+		sourceColumn: Exposure
+
+	column Area
+		dataType: string
+		lineageTag: 9af2b7f7-d099-5228-ac1f-4ba31b5463f7
+		summarizeBy: none
+		sourceColumn: Area
+
+	column VehPower
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1409085d-6af3-5ae0-a7b8-632fc929b21b
+		summarizeBy: none
+		sourceColumn: VehPower
+
+	column VehAge
+		dataType: int64
+		formatString: #,0
+		lineageTag: ac32d0b3-494e-5956-8920-ea34bec2fcb7
+		summarizeBy: none
+		sourceColumn: VehAge
+
+	column DrivAge
+		dataType: int64
+		formatString: #,0
+		lineageTag: fa1e2bf9-b615-5779-beee-e620701e750f
+		summarizeBy: none
+		sourceColumn: DrivAge
+
+	column BonusMalus
+		dataType: int64
+		formatString: #,0
+		lineageTag: 714a93c3-0f8f-5dbb-823a-9480982c8a83
+		summarizeBy: none
+		sourceColumn: BonusMalus
+
+	column VehBrand
+		dataType: string
+		lineageTag: 579704d5-0695-5596-b5d5-a2543b392b57
+		summarizeBy: none
+		sourceColumn: VehBrand
+
+	column VehGas
+		dataType: string
+		lineageTag: 1874c635-2deb-5db8-ab7d-906594b618f4
+		summarizeBy: none
+		sourceColumn: VehGas
+
+	column Density
+		dataType: int64
+		formatString: #,0
+		lineageTag: 81a0ffcc-4c68-52ab-a72c-c3f69fb90c7c
+		summarizeBy: none
+		sourceColumn: Density
+
+	column Region
+		dataType: string
+		lineageTag: 92b7e0e2-db6c-5239-aae2-2259a6d7b169
+		summarizeBy: none
+		sourceColumn: Region
+
+	column Status
+		dataType: string
+		lineageTag: 0586b079-04a4-5573-add3-ff6096bfa3f0
+		summarizeBy: none
+		sourceColumn: Status
+
+	column TrancheAgeConducteur
+		dataType: string
+		lineageTag: f7e1cc0f-b8a7-53d7-9875-22fc960f60e7
+		summarizeBy: none
+		sourceColumn: TrancheAgeConducteur
+		sortByColumn: Ordre_TrancheAgeConducteur
+
+	column TrancheAgeVehicule
+		dataType: string
+		lineageTag: 622d28bc-1ce3-5db8-9be8-bf357d6f3a2f
+		summarizeBy: none
+		sourceColumn: TrancheAgeVehicule
+		sortByColumn: Ordre_TrancheAgeVehicule
+
+	column TrancheBonusMalus
+		dataType: string
+		lineageTag: 6a59e9f9-ef40-566a-9bef-dec5736653df
+		summarizeBy: none
+		sourceColumn: TrancheBonusMalus
+		sortByColumn: Ordre_TrancheBonusMalus
+
+	column TranchePuissance
+		dataType: string
+		lineageTag: ce0cc533-5810-5036-8d1c-c7763f7c45f2
+		summarizeBy: none
+		sourceColumn: TranchePuissance
+		sortByColumn: Ordre_TranchePuissance
+
+	column TrancheDensite
+		dataType: string
+		lineageTag: b269d7a9-edc4-5670-a7ad-060c519db6a1
+		summarizeBy: none
+		sourceColumn: TrancheDensite
+		sortByColumn: Ordre_TrancheDensite
+
+	column ContratSinistre
+		dataType: boolean
+		isHidden
+		lineageTag: fa301e40-4b6b-5daa-8011-e8d67203a797
+		summarizeBy: none
+		sourceColumn: ContratSinistre
+
+	column SansMontant
+		dataType: boolean
+		isHidden
+		lineageTag: 17b820f4-a658-599e-b1cb-d49184859db2
+		summarizeBy: none
+		sourceColumn: SansMontant
+
+	column GroupeMarque
+		dataType: string
+		lineageTag: 1b683820-5de7-5e47-b53c-eb6524a55925
+		summarizeBy: none
+		sourceColumn: GroupeMarque
+
+	column GroupeVehicule
+		dataType: string
+		lineageTag: 94b05187-4fd3-560b-b087-43150964ab28
+		summarizeBy: none
+		sourceColumn: GroupeVehicule
+
+	column GroupeConducteur
+		dataType: string
+		lineageTag: 16a961df-9b7b-5628-81c9-11375b5f797e
+		summarizeBy: none
+		sourceColumn: GroupeConducteur
+
+	column GroupeRegion
+		dataType: string
+		lineageTag: 86fe6b53-bf69-59db-b20a-8ed42bc1ccca
+		summarizeBy: none
+		sourceColumn: GroupeRegion
+
+	column TrancheExposition
+		dataType: string
+		lineageTag: 26970782-0cc9-551b-9031-7c95e6e036fa
+		summarizeBy: none
+		sourceColumn: TrancheExposition
+		sortByColumn: Ordre_TrancheExposition
+
+	column Ordre_TrancheAgeConducteur
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: de506b75-3b0d-5dab-9b23-a0bddc28a468
+		summarizeBy: none
+		sourceColumn: Ordre_TrancheAgeConducteur
+
+	column Ordre_TrancheAgeVehicule
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 974a2d3a-0b1e-5489-a978-7d371c6a805a
+		summarizeBy: none
+		sourceColumn: Ordre_TrancheAgeVehicule
+
+	column Ordre_TrancheBonusMalus
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 92648afa-c591-551c-9e1c-b1e71b83617a
+		summarizeBy: none
+		sourceColumn: Ordre_TrancheBonusMalus
+
+	column Ordre_TranchePuissance
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 6bb523c2-9703-5889-95e8-df3cd84b3e84
+		summarizeBy: none
+		sourceColumn: Ordre_TranchePuissance
+
+	column Ordre_TrancheDensite
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 53035b5e-11e0-5a2e-bbd3-139220f93294
+		summarizeBy: none
+		sourceColumn: Ordre_TrancheDensite
+
+	column Ordre_TrancheExposition
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 81abdfa5-00ec-5670-8d10-c3883e773df2
+		summarizeBy: none
+		sourceColumn: Ordre_TrancheExposition
+
+	partition Contrats = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DossierDonnees & "\contrats.csv"), [Delimiter=";", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Types = Table.TransformColumnTypes(Entetes, {{"IDpol", Int64.Type}, {"ClaimNb", Int64.Type}, {"Exposure", type number}, {"Area", type text}, {"VehPower", Int64.Type}, {"VehAge", Int64.Type}, {"DrivAge", Int64.Type}, {"BonusMalus", Int64.Type}, {"VehBrand", type text}, {"VehGas", type text}, {"Density", Int64.Type}, {"Region", type text}, {"Status", type text}, {"TrancheAgeConducteur", type text}, {"TrancheAgeVehicule", type text}, {"TrancheBonusMalus", type text}, {"TranchePuissance", type text}, {"TrancheDensite", type text}, {"ContratSinistre", type logical}, {"SansMontant", type logical}, {"GroupeMarque", type text}, {"GroupeVehicule", type text}, {"GroupeConducteur", type text}, {"GroupeRegion", type text}, {"TrancheExposition", type text}, {"Ordre_TrancheAgeConducteur", Int64.Type}, {"Ordre_TrancheAgeVehicule", Int64.Type}, {"Ordre_TrancheBonusMalus", Int64.Type}, {"Ordre_TranchePuissance", Int64.Type}, {"Ordre_TrancheDensite", Int64.Type}, {"Ordre_TrancheExposition", Int64.Type}}, "en-US")
+				in
+				    Types

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "03_qualite_kpi_2",
   "position": {
-    "x": 496,
-    "y": 204,
+    "x": 549.33333333333326,
+    "y": 200,
     "z": 41,
-    "height": 110,
-    "width": 214,
-    "tabOrder": 41
+    "height": 104,
+    "width": 240.66666666666666,
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "card",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -181,7 +181,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "28D"
+                  "Value": "24D"
                 }
               }
             },

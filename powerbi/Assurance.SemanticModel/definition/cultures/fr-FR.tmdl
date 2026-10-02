@@ -1,0 +1,1163 @@
+cultureInfo fr-FR
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "contrats.cout_median_observe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Cout median observe"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Coût médian": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Médiane": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.cout_moyen_observe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Cout moyen observe"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Coût moyen": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Moyenne": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.exposition_annees": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Exposition annees"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Exposition (ans)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Exposition": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_pour_100_annees": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence pour 100 annees"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fréq. / 100 ans": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Fréq.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.lignes_orphelines": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Lignes orphelines"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lignes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.montant_observe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Montant observe"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Montant observé": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.montant_orphelin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Montant orphelin"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Montant": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.moyenne_sans_le_plus_gros": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Moyenne sans le plus gros"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Moyenne sans le maximum": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.nombre_de_contrats": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Nombre de contrats"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contrats": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.part_sans_montant": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Part sans montant"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sans montant": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.priorite_exploration": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Priorite exploration"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Priorité": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Région": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.sinistres_observes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Sinistres observes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sinistres observés": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "orphelins.idpol": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Orphelins",
+			          "ConceptualProperty": "IDpol"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID contrat": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.groupemarque": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "GroupeMarque"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Marques": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.trancheexposition": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "TrancheExposition"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Durée": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.sinistres_declares": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Sinistres declares"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sinistres": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_zero_toutes_durees": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence zero toutes durees"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Toutes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_zero_plus_0_10": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence zero plus 0.10"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "> 0,10 an": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_zero_plus_0_50": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence zero plus 0.50"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "> 0,50 an": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.moyenne_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Moyenne R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Moyenne": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.mediane_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Mediane R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Médiane": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.moyenne_sans_maximum_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Moyenne sans maximum R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Moyenne sans max": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.trancheagevehicule": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "TrancheAgeVehicule"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Âge véhicule": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.tranchebonusmalus": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "TrancheBonusMalus"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bonus-malus": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.contrats_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Contrats R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contrats R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.sinistres_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Sinistres R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sinistres R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.exposition_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Exposition R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Exposition R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fréq. R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_hors_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence hors R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fréq. hors R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.sans_montant_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Sans montant R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sans montant R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_comparable_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence comparable R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_comparable_hors_r24": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence comparable hors R24"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hors R24": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_r24_sans_b12_zero": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence R24 sans B12 zero"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R24 sans B12/0": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_hors_r24_sans_b12_zero": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence hors R24 sans B12 zero"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hors sans B12/0": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_r24_sensibilite_combinee": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence R24 sensibilite combinee"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R24 + expo >0,1": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_hors_r24_sensibilite_combinee": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence hors R24 sensibilite combinee"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hors + expo >0,1": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.moyenne_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Moyenne R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Moyenne": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.mediane_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Mediane R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Médiane": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.moyenne_sans_maximum_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Moyenne sans maximum R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Moyenne sans max": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.tranchedensite": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "TrancheDensite"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Densité": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.contrats_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Contrats R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Contrats R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.sinistres_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Sinistres R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sinistres R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.exposition_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Exposition R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Exposition R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fréq. R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_hors_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence hors R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fréq. hors R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.sans_montant_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Sans montant R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sans montant R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_comparable_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence comparable R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_comparable_hors_r11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence comparable hors R11"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hors R11": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_r11_sans_b12_zero": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence R11 sans B12 zero"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R11 sans B12/0": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_hors_r11_sans_b12_zero": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence hors R11 sans B12 zero"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hors sans B12/0": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_r11_sensibilite_combinee": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence R11 sensibilite combinee"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R11 + expo >0,1": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "contrats.frequence_hors_r11_sensibilite_combinee": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Contrats",
+			          "ConceptualProperty": "Frequence hors R11 sensibilite combinee"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hors + expo >0,1": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json

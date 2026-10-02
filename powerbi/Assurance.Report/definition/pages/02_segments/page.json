@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "02_segments",
-  "displayName": "02 · Comprendre les segments",
+  "displayName": "02 · B12 / véhicules de 0 an",
   "displayOption": "FitToPage",
-  "width": 1440,
+  "width": 1600,
   "height": 1080,
   "objects": {
     "background": [
@@ -33,444 +33,664 @@
   },
   "visualInteractions": [
     {
-      "source": "02_segments_filtre_region",
-      "target": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_0",
+      "target": "02_segments_filtre_1",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
-      "target": "02_segments_filtre_age",
+      "source": "02_segments_filtre_0",
+      "target": "02_segments_filtre_2",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
-      "target": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_0",
+      "target": "02_segments_filtre_3",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
+      "source": "02_segments_filtre_0",
       "target": "02_segments_kpi_0",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
+      "source": "02_segments_filtre_0",
       "target": "02_segments_kpi_1",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
+      "source": "02_segments_filtre_0",
       "target": "02_segments_kpi_2",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
+      "source": "02_segments_filtre_0",
       "target": "02_segments_kpi_3",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
+      "source": "02_segments_filtre_0",
       "target": "02_segments_marque_vehicule",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
-      "target": "02_segments_age_bonus",
+      "source": "02_segments_filtre_0",
+      "target": "02_segments_duree_zero",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
-      "target": "02_segments_vehicule_exposition",
+      "source": "02_segments_filtre_0",
+      "target": "02_segments_detail_durees",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_region",
-      "target": "02_segments_region_densite",
+      "source": "02_segments_filtre_0",
+      "target": "02_segments_sensibilite",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
-      "target": "02_segments_filtre_region",
+      "source": "02_segments_filtre_1",
+      "target": "02_segments_filtre_0",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
-      "target": "02_segments_filtre_age",
+      "source": "02_segments_filtre_1",
+      "target": "02_segments_filtre_2",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
-      "target": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_1",
+      "target": "02_segments_filtre_3",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_1",
       "target": "02_segments_kpi_0",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_1",
       "target": "02_segments_kpi_1",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_1",
       "target": "02_segments_kpi_2",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_1",
       "target": "02_segments_kpi_3",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_1",
       "target": "02_segments_marque_vehicule",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
-      "target": "02_segments_age_bonus",
+      "source": "02_segments_filtre_1",
+      "target": "02_segments_duree_zero",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
-      "target": "02_segments_vehicule_exposition",
+      "source": "02_segments_filtre_1",
+      "target": "02_segments_detail_durees",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_marque",
-      "target": "02_segments_region_densite",
+      "source": "02_segments_filtre_1",
+      "target": "02_segments_sensibilite",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
-      "target": "02_segments_filtre_region",
+      "source": "02_segments_filtre_2",
+      "target": "02_segments_filtre_0",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
-      "target": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_2",
+      "target": "02_segments_filtre_1",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
-      "target": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_2",
+      "target": "02_segments_filtre_3",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
+      "source": "02_segments_filtre_2",
       "target": "02_segments_kpi_0",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
+      "source": "02_segments_filtre_2",
       "target": "02_segments_kpi_1",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
+      "source": "02_segments_filtre_2",
       "target": "02_segments_kpi_2",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
+      "source": "02_segments_filtre_2",
       "target": "02_segments_kpi_3",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
+      "source": "02_segments_filtre_2",
       "target": "02_segments_marque_vehicule",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
-      "target": "02_segments_age_bonus",
+      "source": "02_segments_filtre_2",
+      "target": "02_segments_duree_zero",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
-      "target": "02_segments_vehicule_exposition",
+      "source": "02_segments_filtre_2",
+      "target": "02_segments_detail_durees",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_age",
-      "target": "02_segments_region_densite",
+      "source": "02_segments_filtre_2",
+      "target": "02_segments_sensibilite",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
-      "target": "02_segments_filtre_region",
+      "source": "02_segments_filtre_3",
+      "target": "02_segments_filtre_0",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
-      "target": "02_segments_filtre_marque",
+      "source": "02_segments_filtre_3",
+      "target": "02_segments_filtre_1",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
-      "target": "02_segments_filtre_age",
+      "source": "02_segments_filtre_3",
+      "target": "02_segments_filtre_2",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_3",
       "target": "02_segments_kpi_0",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_3",
       "target": "02_segments_kpi_1",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_3",
       "target": "02_segments_kpi_2",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_3",
       "target": "02_segments_kpi_3",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
+      "source": "02_segments_filtre_3",
       "target": "02_segments_marque_vehicule",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
-      "target": "02_segments_age_bonus",
+      "source": "02_segments_filtre_3",
+      "target": "02_segments_duree_zero",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
-      "target": "02_segments_vehicule_exposition",
+      "source": "02_segments_filtre_3",
+      "target": "02_segments_detail_durees",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_filtre_carburant",
-      "target": "02_segments_region_densite",
+      "source": "02_segments_filtre_3",
+      "target": "02_segments_sensibilite",
       "type": "DataFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_filtre_region",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_0",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_filtre_marque",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_0",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_filtre_age",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_0",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_filtre_carburant",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_0",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_kpi_0",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_marque_vehicule",
+      "source": "02_segments_kpi_0",
       "target": "02_segments_kpi_1",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
+      "source": "02_segments_kpi_0",
       "target": "02_segments_kpi_2",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
+      "source": "02_segments_kpi_0",
       "target": "02_segments_kpi_3",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_age_bonus",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_vehicule_exposition",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_marque_vehicule",
-      "target": "02_segments_region_densite",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_filtre_region",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_filtre_marque",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_filtre_age",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_filtre_carburant",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_kpi_0",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_kpi_1",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_kpi_2",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_kpi_3",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_age_bonus",
+      "source": "02_segments_kpi_0",
       "target": "02_segments_marque_vehicule",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_vehicule_exposition",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_0",
+      "target": "02_segments_duree_zero",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_age_bonus",
-      "target": "02_segments_region_densite",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_0",
+      "target": "02_segments_detail_durees",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
-      "target": "02_segments_filtre_region",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_0",
+      "target": "02_segments_sensibilite",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
-      "target": "02_segments_filtre_marque",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_1",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
-      "target": "02_segments_filtre_age",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_1",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
-      "target": "02_segments_filtre_carburant",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_1",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
+      "source": "02_segments_kpi_1",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_1",
       "target": "02_segments_kpi_0",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
-      "target": "02_segments_kpi_1",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_vehicule_exposition",
+      "source": "02_segments_kpi_1",
       "target": "02_segments_kpi_2",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
+      "source": "02_segments_kpi_1",
       "target": "02_segments_kpi_3",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
+      "source": "02_segments_kpi_1",
       "target": "02_segments_marque_vehicule",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
-      "target": "02_segments_age_bonus",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_1",
+      "target": "02_segments_duree_zero",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_vehicule_exposition",
-      "target": "02_segments_region_densite",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_1",
+      "target": "02_segments_detail_durees",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
-      "target": "02_segments_filtre_region",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_1",
+      "target": "02_segments_sensibilite",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
-      "target": "02_segments_filtre_marque",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_2",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
-      "target": "02_segments_filtre_age",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_2",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
-      "target": "02_segments_filtre_carburant",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_2",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
+      "source": "02_segments_kpi_2",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_2",
       "target": "02_segments_kpi_0",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
+      "source": "02_segments_kpi_2",
       "target": "02_segments_kpi_1",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
-      "target": "02_segments_kpi_2",
-      "type": "DataFilter"
-    },
-    {
-      "source": "02_segments_region_densite",
+      "source": "02_segments_kpi_2",
       "target": "02_segments_kpi_3",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
+      "source": "02_segments_kpi_2",
       "target": "02_segments_marque_vehicule",
-      "type": "DataFilter"
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
-      "target": "02_segments_age_bonus",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_2",
+      "target": "02_segments_duree_zero",
+      "type": "NoFilter"
     },
     {
-      "source": "02_segments_region_densite",
-      "target": "02_segments_vehicule_exposition",
-      "type": "DataFilter"
+      "source": "02_segments_kpi_2",
+      "target": "02_segments_detail_durees",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_2",
+      "target": "02_segments_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_marque_vehicule",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_duree_zero",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_detail_durees",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_kpi_3",
+      "target": "02_segments_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_duree_zero",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_detail_durees",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_marque_vehicule",
+      "target": "02_segments_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_marque_vehicule",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_detail_durees",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_duree_zero",
+      "target": "02_segments_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_marque_vehicule",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_duree_zero",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_detail_durees",
+      "target": "02_segments_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_marque_vehicule",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_duree_zero",
+      "type": "NoFilter"
+    },
+    {
+      "source": "02_segments_sensibilite",
+      "target": "02_segments_detail_durees",
+      "type": "NoFilter"
     }
   ]
 }

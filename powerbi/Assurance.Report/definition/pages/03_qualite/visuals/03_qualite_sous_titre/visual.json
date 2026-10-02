@@ -3,11 +3,11 @@
   "name": "03_qualite_sous_titre",
   "position": {
     "x": 28,
-    "y": 75,
+    "y": 80,
     "z": 34,
-    "height": 29,
-    "width": 1384,
-    "tabOrder": 34
+    "height": 32,
+    "width": 1544,
+    "tabOrder": 1
   },
   "visual": {
     "visualType": "textbox",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },

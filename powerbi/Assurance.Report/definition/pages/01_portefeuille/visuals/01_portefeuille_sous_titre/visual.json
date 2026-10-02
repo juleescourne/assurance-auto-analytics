@@ -3,10 +3,10 @@
   "name": "01_portefeuille_sous_titre",
   "position": {
     "x": 28,
-    "y": 75,
+    "y": 80,
     "z": 1,
-    "height": 29,
-    "width": 1384,
+    "height": 32,
+    "width": 1544,
     "tabOrder": 1
   },
   "visual": {
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -149,7 +149,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Étude de cas · freMTPL2 · Fréquence, volumes et coûts observés · Sélections propres à chaque page",
+                    "value": "Cas métier fictif sur données publiques freMTPL2 · Distinguer volume et fréquence · Filtres propres à chaque page",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "10pt",

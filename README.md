@@ -9,11 +9,12 @@ La question métier est simple : **quels groupes concentrent les sinistres, et l
 
 ## Ce que je retiens
 
-- **Volume et fréquence ne racontent pas la même chose.** R24 représente 25,49 % des sinistres déclarés, mais sa fréquence est de 8,96 pour 100 années assurées, contre 10,07 pour le portefeuille.
-- **Une alerte doit être approfondie.** Le groupe B12 / véhicule de 0 an atteint une fréquence de 45,16 sur 37 069 contrats. Cependant, 87,10 % de ses contrats sinistrés n'ont aucun montant retrouvé : je propose d'abord de vérifier ce périmètre.
-- **La qualité change la lecture des coûts.** Au global, 26,76 % des contrats sinistrés n'ont pas de montant rapproché. Le plus gros sinistre représente aussi 6,80 % des montants observés. Je garde ces limites visibles au lieu de supprimer les observations gênantes.
+- **B12 / véhicules de 0 an : l'écart persiste à durée proche.** Entre 0,50 et 1 an d'exposition, la fréquence est de 21,33 contre 9,68 pour les autres marques. La forte part de montants absents impose encore une vérification des sources.
+- **R24 : une moyenne basse peut masquer des profils à étudier.** Les véhicules de 1-2 ans / bonus-malus 76-100 ont une fréquence de 16,96 contre 12,81 pour les mêmes tranches hors R24, sur 1 531 contrats locaux.
+- **R11 : la priorité dépend du profil.** À densité 1 001-5 000 et bonus-malus 51-75, la fréquence est de 14,77 contre 12,26 ailleurs. D'autres tranches deviennent proches de leur comparateur.
+- **Les coûts restent partiels et sensibles aux gros montants.** 26,76 % des contrats sinistrés sont sans montant retrouvé ; un seul sinistre représente 21,37 % des coûts observés de R24.
 
-Les résultats détaillés et les priorités proposées sont dans [la synthèse des analyses](docs/Analyse.md).
+Ce sont des comparaisons descriptives, pas des preuves causales. Les effectifs, les sensibilités et les actions proposées sont dans [la synthèse des analyses](docs/Analyse.md).
 
 ## Quelques chiffres
 
@@ -59,13 +60,17 @@ Orphelins : table indépendante, pour suivre les sinistres sans contrat dans fre
 
 Le filtre circule des contrats vers les sinistres. L'exposition reste au grain contrat ; les coûts moyens et médians sont calculés sur les sinistres individuels. Les **6 contrats orphelins**, soit **195 lignes et 788 714,18 €**, restent hors des coûts rapprochés et sont présentés séparément.
 
-Le rapport contient trois pages :
+Le modèle enregistré par Desktop est au format **TMDL**, dans `powerbi/Assurance.SemanticModel/definition`. Il contient trois tables et 86 mesures. Le contrôle des livrables accepte ce format ainsi que l'ancien format `model.bim`.
+
+Le rapport contient cinq pages :
 
 1. **Vue d'ensemble** : KPI, régions, fréquence par âge et comparaison régionale.
-2. **Comprendre les segments** : B12 / âge du véhicule, âge / bonus-malus, exposition et densité.
-3. **Qualité et limites** : couverture des montants, écart de dénombrement, orphelins et influence du plus gros sinistre.
+2. **B12 / véhicules de 0 an** : exposition, couverture des coûts et sensibilité.
+3. **R24** : profils âge du véhicule / bonus-malus, sensibilité et gros sinistre.
+4. **R11** : profils densité / bonus-malus et comparaison au reste du portefeuille.
+5. **Qualité et limites** : couverture des montants, écart de dénombrement, orphelins et priorités.
 
-**État au 01/10/2026 :** les notebooks et les exports ont été exécutés et contrôlés. La structure des fichiers Power BI, les références aux colonnes et aux mesures ont été vérifiées. Une correction des tableaux a été appliquée après une erreur de rendu. **L'actualisation, l'exécution des mesures DAX et l'affichage des trois tableaux restent à confirmer dans Power BI Desktop.**
+**État au 02/10/2026 :** les deux notebooks d'analyse ont été réexécutés et les CSV régénérés. Les fichiers, références et positions Power BI sont contrôlés. **L'actualisation, l'exécution des nouvelles mesures DAX et l'affichage natif restent à confirmer dans Power BI Desktop.** Le contrôle des fichiers ne remplace pas cette dernière étape.
 
 ## Reproduire l'analyse
 
@@ -90,17 +95,17 @@ Le script télécharge les deux fichiers OpenML précis dans `data/raw` et véri
 2. `analyse_globale.ipynb`.
 3. `analyse_approfondie.ipynb`, jusqu'à la section **Exporter les données pour Power BI**.
 
-Les notebooks retrouvent la racine du projet depuis `notebook/` ou depuis la racine. Le dernier crée quatre fichiers dans `data/processed` : `contrats.csv`, `sinistres.csv`, `orphelins.csv` et `controle_kpi.csv`. Ils utilisent le séparateur `;`, l'encodage UTF-8 avec BOM et le point décimal. Les contrôles de fin doivent afficher `Contrôles des exports : OK`.
+Les notebooks retrouvent la racine du projet depuis `notebook/` ou depuis la racine. Le dernier crée dix fichiers dans `data/processed` : `contrats.csv`, `sinistres.csv`, `orphelins.csv`, `controle_kpi.csv` et six tableaux `investigation_*.csv` décrits dans le dictionnaire. Seuls les trois premiers sont importés dans le modèle. Ils utilisent le séparateur `;`, l'encodage UTF-8 avec BOM et le point décimal. Les contrôles de fin doivent afficher `Contrôles des exports : OK`.
 
 ### Ouvrir Power BI
 
 1. Ouvrir `powerbi/Assurance.pbip` dans Power BI Desktop. Garder les dossiers `Assurance.Report` et `Assurance.SemanticModel` à côté du fichier.
 2. Dans **Transformer les données > Gérer les paramètres**, renseigner `DossierDonnees` avec le chemin absolu de **votre** dossier `data/processed`. Le chemin livré correspond au PC de création et doit être adapté après clonage.
 3. Appliquer les changements, puis **Actualiser**. Le dépôt contient les définitions du rapport et du modèle, sans cache de données.
-4. Sans filtre, comparer les KPI au tableau ci-dessus et à `controle_kpi.csv`. La requête [Controle.dax](powerbi/Assurance.SemanticModel/DAXQueries/Controle.dax) permet aussi de vérifier le portefeuille et B12 / véhicule de 0 an.
-5. Parcourir les trois pages et contrôler les tableaux régional, orphelins et influence. Enregistrer ensuite le projet ; un `.pbix` peut être créé avec **Enregistrer sous**.
+4. Sans filtre, comparer les KPI au tableau ci-dessus et à `controle_kpi.csv`. La requête [Controles_investigations.dax](powerbi/Controles_investigations.dax) permet aussi de vérifier B12, R24 et R11.
+5. Parcourir les cinq pages et comparer les croisements aux CSV `investigation_*.csv`. Enregistrer ensuite le projet ; un `.pbix` peut être créé avec **Enregistrer sous**.
 
-Les filtres sont propres à chaque page. La table des orphelins reste indépendante des filtres portant sur les caractéristiques des contrats.
+Les filtres sont propres à chaque page. Dans les trois pages d’investigation, seuls les menus de filtre agissent sur les autres visuels : les clics sur barres ou tableaux ne réduisent pas le groupe de référence. R24 et R11 sont comparées aux autres régions réunies, sous les mêmes filtres. La table des orphelins reste indépendante des filtres portant sur les caractéristiques des contrats.
 
 ## Limites et choix
 

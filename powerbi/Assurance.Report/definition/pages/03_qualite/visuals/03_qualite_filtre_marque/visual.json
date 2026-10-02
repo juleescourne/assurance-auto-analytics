@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "03_qualite_filtre_marque",
   "position": {
-    "x": 332,
-    "y": 118,
+    "x": 419,
+    "y": 120,
     "z": 36,
-    "height": 68,
-    "width": 290,
-    "tabOrder": 36
+    "height": 64,
+    "width": 371,
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "slicer",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -205,6 +205,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }

@@ -1,0 +1,8 @@
+// Portefeuille puis investigations : exécuter sans modifier les données.
+EVALUATE ROW("Contrats", [Nombre de contrats], "Sinistres", [Sinistres declares], "Frequence", [Frequence pour 100 annees], "Sans montant", [Part sans montant])
+EVALUATE ROW("B12 zero contrats", [Contrats B12 zero], "B12 zero frequence", [Frequence B12 zero], "B12 zero sans montant", [Sans montant B12 zero])
+EVALUATE SUMMARIZECOLUMNS(Contrats[GroupeMarque], "Toutes", [Frequence zero toutes durees], "Expo > 0.1", [Frequence zero plus 0.10], "Expo > 0.5", [Frequence zero plus 0.50])
+EVALUATE FILTER(SUMMARIZECOLUMNS(Contrats[TrancheAgeVehicule], Contrats[TrancheBonusMalus], "Contrats", [Contrats R24], "Exposition", [Exposition R24], "Frequence", [Frequence R24], "Ailleurs", [Frequence hors R24], "Sans montant", [Sans montant R24], "Lisible", [Comparaison lisible R24]), [Lisible] = 1)
+EVALUATE ROW("R24 sans B12 zero", [Frequence R24 sans B12 zero], "Ailleurs sans B12 zero", [Frequence hors R24 sans B12 zero], "R24 combinee", [Frequence R24 sensibilite combinee], "Ailleurs combinee", [Frequence hors R24 sensibilite combinee])
+EVALUATE FILTER(SUMMARIZECOLUMNS(Contrats[TrancheDensite], Contrats[TrancheBonusMalus], "Contrats", [Contrats R11], "Exposition", [Exposition R11], "Frequence", [Frequence R11], "Ailleurs", [Frequence hors R11], "Sans montant", [Sans montant R11], "Lisible", [Comparaison lisible R11]), [Lisible] = 1)
+EVALUATE ROW("R11 sans B12 zero", [Frequence R11 sans B12 zero], "Ailleurs sans B12 zero", [Frequence hors R11 sans B12 zero], "R11 combinee", [Frequence R11 sensibilite combinee], "Ailleurs combinee", [Frequence hors R11 sensibilite combinee])

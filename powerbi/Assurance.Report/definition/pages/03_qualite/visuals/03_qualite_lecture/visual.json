@@ -3,11 +3,11 @@
   "name": "03_qualite_lecture",
   "position": {
     "x": 28,
-    "y": 328,
+    "y": 316,
     "z": 45,
-    "height": 40,
-    "width": 1384,
-    "tabOrder": 45
+    "height": 44,
+    "width": 1544,
+    "tabOrder": 12
   },
   "visual": {
     "visualType": "textbox",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -149,7 +149,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Un coût non retrouvé reste inconnu. Un montant élevé n’est pas automatiquement une erreur. Les données d’origine sont conservées.",
+                    "value": "Part sans montant : parmi les contrats avec sinistre, ceux sans montant rattaché. Une absence de montant ne vaut pas zéro.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "11pt",

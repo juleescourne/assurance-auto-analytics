@@ -3,10 +3,10 @@
   "name": "01_portefeuille_comparatif_regions",
   "position": {
     "x": 28,
-    "y": 740,
+    "y": 692,
     "z": 15,
-    "height": 282,
-    "width": 1384,
+    "height": 336,
+    "width": 1544,
     "tabOrder": 15
   },
   "visual": {
@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Comparer les régions · volume, fréquence et coût'"
+                  "Value": "'Comparer les régions : exposition, fréquence et coûts observés'"
                 }
               }
             },
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -350,7 +350,7 @@
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "5D"
+                  "Value": "3D"
                 }
               }
             }

@@ -63,3 +63,17 @@ Les montants mis de côté représentent **1,30 % du montant total de sev**. Les
 Les tables brutes sont conservées. Aucun coût manquant n'a été remplacé par zéro et les lignes répétées de `sev` n'ont pas été supprimées.
 
 **Conclusion :** les contrôles de base sont réalisés, mais les coûts disponibles ne couvrent pas tous les sinistres déclarés dans `freq`. L'origine des écarts entre les tables reste inconnue. Les durées supérieures à un an et les âges égaux à 100 ans restent également à expliquer.
+
+## 5. Suivi qualité dans les investigations du 02/10/2026
+
+L'audit initial reste inchangé : les investigations n'ont pas permis d'expliquer ni de corriger les écarts entre les sources.
+
+- B12 / véhicules de 0 an : 87,10 % des contrats sinistrés sans montant. Même entre 0,50 et 1 an d'exposition, cette part reste de 75,15 %.
+- R24, véhicules de 1-2 ans / bonus-malus 76-100 : 8,49 % sans montant ; la fréquence se calcule toujours depuis freq, indépendamment de la présence du coût.
+- R11, densité 1 001-5 000 / bonus-malus 51-75 : 34,99 % sans montant. Les coûts ne couvrent donc pas ce groupe de façon complète.
+- Aucun contrat hors R11 au-delà de 20 000 de densité : le comparateur reste manquant, pas nul.
+- Les regroupements contrôlent les totaux de contrats, de sinistres et d'exposition. Les montants régionaux retrouvent le total des lignes rapprochées.
+
+Les scénarios d'exclusion et le retrait d'une occurrence du maximum servent uniquement à mesurer la sensibilité. Les tables de référence conservent les 678 013 contrats et les sinistres rapprochés. Les fréquences n'ont pas été corrigées, et aucun montant inconnu n'a été imputé.
+
+Les nouveaux résultats figurent dans [l'analyse approfondie](../notebook/analyse_approfondie.ipynb) et [la synthèse](Analyse.md).

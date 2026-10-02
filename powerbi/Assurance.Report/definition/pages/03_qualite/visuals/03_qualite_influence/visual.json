@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "03_qualite_influence",
   "position": {
-    "x": 521,
+    "x": 498,
     "y": 692,
     "z": 49,
-    "height": 156,
-    "width": 891,
-    "tabOrder": 49
+    "height": 140,
+    "width": 1074,
+    "tabOrder": 16
   },
   "visual": {
     "visualType": "tableEx",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -275,7 +275,7 @@
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "5D"
+                  "Value": "3D"
                 }
               }
             }

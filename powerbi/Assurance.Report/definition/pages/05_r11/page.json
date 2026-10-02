@@ -1,0 +1,1086 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "05_r11",
+  "displayName": "04 · R11",
+  "displayOption": "FitToPage",
+  "width": 1600,
+  "height": 1080,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F3F6FA'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_filtre_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_filtre_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_filtre_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_profil_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_profil_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_profils_croises",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_sensibilite",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_0",
+      "target": "05_r11_couts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_filtre_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_filtre_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_filtre_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_profil_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_profil_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_profils_croises",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_sensibilite",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_1",
+      "target": "05_r11_couts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_filtre_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_filtre_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_filtre_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_profil_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_profil_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_profils_croises",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_sensibilite",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_2",
+      "target": "05_r11_couts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_filtre_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_filtre_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_filtre_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_kpi_0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_kpi_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_kpi_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_kpi_3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_kpi_4",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_kpi_5",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_profil_1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_profil_2",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_profils_croises",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_sensibilite",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_filtre_3",
+      "target": "05_r11_couts",
+      "type": "DataFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_0",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_1",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_2",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_3",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_4",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_kpi_5",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_1",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profil_2",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_profils_croises",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_sensibilite",
+      "target": "05_r11_couts",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_filtre_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_filtre_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_filtre_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_filtre_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_kpi_0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_kpi_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_kpi_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_kpi_3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_kpi_4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_kpi_5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_profil_1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_profil_2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_profils_croises",
+      "type": "NoFilter"
+    },
+    {
+      "source": "05_r11_couts",
+      "target": "05_r11_sensibilite",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -3,10 +3,10 @@
   "name": "01_portefeuille_pied",
   "position": {
     "x": 28,
-    "y": 1035,
+    "y": 1044,
     "z": 16,
     "height": 28,
-    "width": 1384,
+    "width": 1544,
     "tabOrder": 16
   },
   "visual": {
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },

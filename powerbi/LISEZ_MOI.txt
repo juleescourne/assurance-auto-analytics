@@ -1,159 +1,159 @@
 RAPPORT POWER BI — ASSURANCE AUTOMOBILE
+Mise à jour du 02/10/2026 : investigations B12 / véhicules de 0 an, R24 et R11.
 
-OUVRIR LE RAPPORT
+MISE EN PAGE CORRIGÉE — TABLEAUX DÉROULANTS
 
-1. Ouvrir Assurance.pbip avec Power BI Desktop.
-   Solution équivalente : ouvrir Assurance.Report/definition.pbir.
-   Cette entrée contient la correction des tableaux du 01/10/2026.
-   Fermer l'ancienne fenêtre et ouvrir cette version : Actualiser seul
-   ne recharge pas la définition des visuels déjà ouverte.
-2. Si le projet a changé de dossier ou de PC, renseigner DossierDonnees
-   dans Transformer les données > Gérer les paramètres : chemin absolu
-   du dossier data/processed. Puis cliquer sur Actualiser dans Accueil.
-   Le projet contient le modèle et les pages, mais pas encore de cache de données.
-3. Vérifier les cartes de la première page sans aucun filtre.
-4. Enregistrer le projet. Pour obtenir un fichier unique, utiliser
-   Fichier > Enregistrer sous, puis choisir le format Power BI (.pbix).
+Les cinq pages mesurent 1 600 × 1 080 pixels et utilisent Ajuster à la page.
+Les tableaux gardent une hauteur fixe : faire défiler leurs lignes à l'intérieur
+du visuel, sans agrandir la page. Les colonnes utilisent le réglage natif
+Agrandir pour remplir (Grow to fit), avec dimensionnement automatique activé.
+Les largeurs personnalisées ont été supprimées des onze tableaux.
+Les en-têtes peuvent revenir à la ligne. Les calculs et les filtres sont conservés.
 
-Le projet doit rester avec Assurance.Report et Assurance.SemanticModel.
-Assurance.pbip et Assurance.Report contiennent la correction des tableaux.
-La copie locale Assurance_corrigee contient la même définition corrigée ;
-elle est conservée localement mais exclue de Git pour garder une seule référence.
-Le fichier Dashboard_Ventes.pbip situé dans le dossier parent n'est pas ce rapport.
+Les contrôles de fichiers confirment les dimensions et l'absence de chevauchement.
+Le rendu natif dans Desktop reste à confirmer. Fermer puis rouvrir Assurance.pbip
+pour charger la mise en page ; Actualiser seul ne recharge pas les visuels.
+Pour créer Assurance.pbix, utiliser Enregistrer sous depuis le projet corrigé.
 
-DONNÉES
+OUVRIR LA VERSION À JOUR
 
-Les quatre fichiers sont dans ../data/processed, relativement au dossier powerbi.
-Ils ne sont pas versionnés : suivre ../README.md pour télécharger les sources
-et exécuter les notebooks avant la première actualisation.
+1. Fermer l'ancienne fenêtre du rapport avant de rouvrir Assurance.pbip.
+   Actualiser seul ne recharge pas les définitions des pages modifiées sur disque.
+   Si Desktop contient des changements non enregistrés que vous voulez garder,
+   les enregistrer dans une copie séparée avant de fermer.
+2. Garder les dossiers Assurance.Report et Assurance.SemanticModel à côté du PBIP.
+3. Dans Transformer les données > Gérer les paramètres, vérifier DossierDonnees :
+   chemin absolu de votre dossier data/processed. Appliquer, puis Actualiser.
+4. Comparer les valeurs aux contrôles ci-dessous. Enregistrer après vérification.
 
-- contrats.csv : 678 013 lignes, une par contrat.
-- sinistres.csv : 26 444 lignes, une par sinistre observé rapproché.
+La référence est Assurance.pbip. L'ancienne copie Assurance_corrigee et le fichier
+Dashboard_Ventes.pbip ne sont pas cette version et ne doivent pas servir à la démo.
+
+DONNÉES ET MODÈLE
+
+Les notebooks régénèrent dix CSV dans ../data/processed. Les données ne sont pas
+versionnées : suivre ../README.md pour télécharger les sources et les préparer.
+
+Seules trois tables sont importées dans Power BI :
+- contrats.csv : 678 013 lignes ; une ligne par IDpol.
+- sinistres.csv : 26 444 lignes rapprochées ; une ligne par montant de sinistre.
 - orphelins.csv : 195 lignes, concernant 6 IDpol absents de freq.
-- controle_kpi.csv : une ligne de référence, non importée dans le modèle.
 
-Pour régénérer les CSV : exécuter analyse_approfondie.ipynb dans l'ordre,
-y compris sa dernière section « Exporter les données pour Power BI ».
-Puis cliquer sur Actualiser dans Power BI.
-
-Les requêtes Power Query sont déjà définies dans le modèle :
-séparateur ;, encodage UTF-8 et conversion numérique avec la culture en-US.
-Cette conversion lit le point décimal du CSV ; le modèle affiche les valeurs en français.
-
-Si le projet change de dossier ou de PC, modifier le paramètre DossierDonnees
-dans Transformer les données > Gérer les paramètres, puis actualiser.
-
-MODÈLE
+controle_kpi.csv et les six investigation_*.csv servent aux comparaisons avec les
+notebooks. Ils ne sont pas importés : les mesures utilisent les tables détaillées.
+Le grain de chaque export est décrit dans ../docs/Dictionnaire.md.
 
 Contrats[IDpol]  1 -----> *  Sinistres[IDpol]
+Orphelins : indépendante. Filtrage à sens unique des contrats vers les sinistres.
+Les expositions restent au grain contrat. Les coûts utilisent les lignes de sev.
+LigneSource est un numéro technique ; faute d'ID métier, les répétitions restent.
+CSV : séparateur ;, UTF-8 avec BOM, point décimal lu avec la culture en-US.
 
-Orphelins : table indépendante, sans relation avec Contrats.
-
-Le filtre circule uniquement de Contrats vers Sinistres.
-Les caractéristiques et l'exposition restent au grain contrat.
-Les montants sont calculés depuis les sinistres individuels.
-LigneSource est un numéro technique de ligne de sev, pas un identifiant métier de sinistre.
-Les répétitions de lignes de sinistres sont conservées.
-
-PAGES
+LES CINQ PAGES
 
 01 — Vue d'ensemble
-Cartes du portefeuille, principales régions en volume, fréquence par âge,
-tableau régional avec exposition, coûts, qualité et priorité d'investigation.
+Contrats, exposition, fréquence, coûts et couverture. Régions en volume et
+comparaison régionale. Les clics sur barres filtrent les autres visuels de cette page.
 
-02 — Comprendre les segments
-Quatre croisements : B12 / âge du véhicule ; âge / bonus-malus ;
-âge du véhicule / durée d'exposition ; R11 / densité.
-Les infobulles donnent les effectifs, les sinistres, l'exposition et les montants manquants.
+02 — B12 / véhicules de 0 an
+Cartes limitées à B12 / âge codé 0 an. Le premier graphique situe B12 selon l'âge.
+Le deuxième compare les marques parmi les véhicules de 0 an, par exposition.
+La tranche > 1 an n'est pas dans ce graphique : seulement 12 contrats B12.
+Elle reste dans le tableau détaillé, les cartes et les données.
+Le tableau de sensibilité compare toutes les durées, > 0,10 an et > 0,50 an.
 
-03 — Qualité et limites
-Montants non retrouvés, statuts des contrats, écart de nombre de sinistres,
-table des orphelins et influence du plus gros sinistre observé.
+03 — R24
+Cartes R24, comparaison par âge véhicule et conducteur, puis croisement âge
+véhicule / bonus-malus. Tableaux de sensibilité et de coûts observés en bas.
 
-Les filtres sont propres à chaque page ; ils ne sont pas synchronisés entre les pages.
-Cliquer sur une barre filtre les autres visuels. Cliquer à nouveau pour retirer la sélection.
-Utiliser la gomme d'un filtre pour revenir à toutes ses valeurs.
-Le tableau des orphelins porte toujours sur la source complète : les filtres
-sur les caractéristiques des contrats ne peuvent pas s'y appliquer.
+04 — R11
+Cartes R11, comparaison par densité et bonus-malus, puis leur croisement.
+Au-delà de 20 000 de densité, il n'y a pas de comparateur hors R11.
 
-LECTURE DES MESURES
+05 — Qualité et limites
+Montants non retrouvés, statuts, orphelins, influence du maximum et actions proposées.
+Le tableau des orphelins reste indépendant des filtres sur les contrats.
 
-Fréquence = 100 × somme des sinistres déclarés / somme des expositions.
-Ce n'est ni un pourcentage de contrats ni la moyenne des fréquences individuelles.
+INTERACTIONS ET COMPARAISONS
 
-Coût moyen = somme des montants rapprochés / nombre de sinistres rapprochés.
-Coût médian = médiane des montants individuels rapprochés.
+Les filtres sont propres à chaque page. Pour réinitialiser : gomme de chaque menu.
+Sur les trois pages d'investigation, SEULS les menus filtrent les autres visuels.
+Les clics sur barres et lignes de tableau n'enlèvent pas le groupe de comparaison.
+Le survol conserve les infobulles ; les tableaux peuvent être parcourus en défilant.
 
-Part sans montant = contrats sinistrés absents de sev / contrats sinistrés.
-Le contrat avec deux sinistres déclarés pour une ligne de montant est suivi séparément.
-Un coût non disponible reste vide. Un dénominateur nul donne un ratio vide.
+Sur R24 et R11, la région est fixée dans les mesures. Le comparateur exclut cette
+région et regroupe toutes les autres. Les menus s'appliquent aux deux côtés.
+Les graphiques et le tableau croisé affichent uniquement les paires avec au moins
+1 000 contrats ET 500 années de chaque côté. Sinon les deux barres restent absentes.
+Les cartes et les tableaux de sensibilité ne sont pas soumis à ces seuils.
+Les CSV conservent aussi les groupes petits ou sans comparateur.
 
-Priorité d'exploration : au moins 10 000 contrats, 1 000 années d'exposition et
-une fréquence au moins 20 % supérieure à celle du portefeuille complet.
-Ce sont des critères d'investigation, pas un test statistique.
+Les scénarios d'exclusion sont des diagnostics, pas une suppression des sources.
+« Sans B12 / 0 an » retire seulement l'intersection marque B12 ET âge zéro.
+Le scénario combiné ajoute Exposure > 0,10. Retirer les filtres de page pour
+retrouver les valeurs du portefeuille complet et ne pas additionner les scénarios.
 
-Dans le graphique global par âge, une fréquence n'est affichée qu'à partir de
-1 000 années d'exposition. Dans le graphique âge / bonus-malus, chaque sous-groupe
-doit compter 1 000 contrats et 500 années ; seules les tranches 51-75, 76-100 et
-101-125 et les groupes 18-24 / 25-99 ans sont présentés, comme dans le notebook.
-Ces filtres d'affichage ne retirent aucun contrat du modèle ni des cartes globales.
-Après filtrage, un seul des deux groupes peut rester visible : une barre absente
-ne signifie pas une fréquence nulle. Le notebook ne trace que les comparaisons
-ayant les deux groupes. De même, la classe de densité supérieure à 20 000
-n'a que des contrats R11 ; Power BI peut l'afficher sans groupe de comparaison.
+LECTURE DES KPI
 
-CONTRÔLES À L'OUVERTURE
+Fréquence = 100 × somme ClaimNb / somme Exposure : sinistres / 100 années.
+Ce n'est ni un pourcentage de contrats ni une moyenne de fréquences individuelles.
+Sans montant = contrats sinistrés absents de sev / contrats sinistrés.
+Le contrat ayant 2 sinistres déclarés pour 1 montant est suivi séparément.
+Coût moyen et médian : montants individuels rapprochés, pas la charge complète.
+Moyenne sans maximum : retirer une seule occurrence maximale pour le diagnostic.
+Un dénominateur nul donne un ratio vide ; un montant inconnu n'est pas zéro.
+Les seuils de comparaison ne sont pas des tests de significativité.
 
-Sans filtre :
-- Contrats : 678 013.
-- Exposition : 358 499,4455 années (358 499,45 à l'affichage).
-- Sinistres déclarés : 36 102.
-- Fréquence : 10,07 sinistres / 100 années.
-- Sinistres observés rapprochés : 26 444.
-- Montant observé : 59 909 216,50 euros.
-- Moyenne : 2 265,51 euros ; médiane : 1 172 euros.
-- Part des contrats sinistrés sans montant : 26,76 %.
-- Contrats avec un écart de nombre : 1.
-- Orphelins : 6 contrats, 195 lignes, 788 714,18 euros.
+VALEURS DE CONTRÔLE — AUCUN FILTRE
 
-Contrôle ciblé B12 / véhicule de 0 an :
-37 069 contrats ; 4 318 sinistres déclarés ; fréquence 45,16 ; sans montant 87,10 %.
+Portefeuille : 678 013 contrats ; 36 102 sinistres déclarés ; 358 499,45 années ;
+fréquence 10,07 ; montant rapproché 59 909 216,50 € ; sans montant 26,76 %.
+Coût moyen 2 265,51 € ; médiane 1 172 €. Un contrat avec nombre différent.
+Orphelins : 6 IDpol, 195 lignes, 788 714,18 €.
 
-Une requête de contrôle est fournie dans
-Assurance.SemanticModel/DAXQueries/Controle.dax.
-Elle peut être exécutée dans la vue Requête DAX après l'actualisation.
+B12 / 0 an : 37 069 contrats ; 4 318 sinistres ; fréquence 45,16 ;
+sans montant 87,10 %. De 0,50 à 1 an : 21,33 contre 9,68 pour les autres marques.
+Sensibilité > 0,50 an (inclut > 1 an) : B12 21,27 ; autres marques 9,40.
 
-VALIDATION RÉALISÉE
+R24 : 160 601 contrats ; 9 204 sinistres ; fréquence 8,96.
+Véhicules 1-2 ans / bonus-malus 76-100 : 1 531 contrats, 117 sinistres,
+689,87 années ; fréquence 16,96 contre 12,81 ailleurs ; sans montant 8,49 %.
+Coût moyen 2 945,92 €, médiane 1 128,12 €, moyenne sans un maximum 2 316,87 €.
+Poids du maximum : 21,37 % des montants observés régionaux.
 
-- Notebook exécuté entièrement et CSV relus : clés, effectifs, expositions et montants contrôlés.
-- Fichiers PBIP/PBIR/PBISM validés avec les schémas JSON publics Microsoft.
-- Modèle model.bim analysé avec la bibliothèque TOM installée avec Power BI Desktop.
-- Références des visuels vers les colonnes et mesures contrôlées.
-- Positions contrôlées : aucun visuel hors page ni chevauchement de conteneurs.
-- Calculs de référence vérifiés en Python sur le portefeuille et plusieurs segments.
+R11 : 69 791 contrats ; 3 978 sinistres ; fréquence 13,17.
+Densité 1 001-5 000 / bonus-malus 51-75 : 6 793 contrats, 412 sinistres,
+2 789,59 années ; fréquence 14,77 contre 12,26 ailleurs ; sans montant 34,99 %.
+Densité 5 001-20 000 / bonus-malus 51-75 : 12,61 contre 12,70 ailleurs.
 
-À TERMINER DANS DESKTOP
+Sans B12 / 0 an et avec exposition > 0,10 :
+R24 = 8,59 contre 8,76 ailleurs ; R11 = 9,74 contre 8,62 ailleurs.
 
-L'accès aux fenêtres Windows était indisponible pendant la création.
-Le chargement Power Query, l'exécution des mesures DAX et le rendu visuel natif
-n'ont donc pas pu être vérifiés dans Power BI Desktop. La validation des schémas
-et des données ne remplace pas cette vérification. L'actualisation initiale et
-les contrôles ci-dessus restent nécessaires avant de présenter le rapport.
+Controles_investigations.dax contient les requêtes à exécuter dans la vue Requête
+DAX après le chargement du modèle. Les CSV d'investigation donnent les détails.
 
-CORRECTION DES TABLEAUX — 01/10/2026
+VALIDATION ET LIMITE TECHNIQUE
 
-Le signalement de rendu concerne le composant TableEx. Les tableaux régional
-et des orphelins avaient un champ « active » sur leur dimension : ce réglage
-de niveau actif utilisé pour les axes a été retiré des tableaux.
-Les trois tableaux ont aussi une largeur automatique et une couleur de texte
-explicite sur les lignes alternées. Les champs, mesures et sources sont conservés.
-La correction du générateur empêche de réintroduire ce réglage lors d'une reconstruction.
-Le rendu dans Desktop reste à confirmer : le composant de contrôle Windows est indisponible.
+Les deux notebooks d'analyse ont été exécutés sans erreur. Les totaux et les
+nouveaux résultats ont été recoupés depuis les lignes détaillées. Les fichiers
+du rapport passent la validation des schémas JSON ; les positions, les références
+et les interactions déclarées ont été contrôlées. Desktop a enregistré le modèle
+au format TMDL dans Assurance.SemanticModel/definition : trois tables et 86 mesures.
+Le contrôle des livrables vérifie les références des visuels dans ce format ;
+il ne compile pas les expressions DAX.
 
-Sources techniques Microsoft :
-https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report
-https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-dataset
-https://github.com/microsoft/json-schemas/tree/main/fabric/item/report
+Le contrôle Windows ne démarre pas dans l'environnement utilisé pour cette mise
+à jour (erreur d'initialisation du module). Le rendu natif, l'actualisation et
+l'exécution des nouvelles mesures DAX n'ont PAS été validés dans Desktop.
+Vérifier les cinq pages et les valeurs ci-dessus avant de filmer ou publier.
+Les tableaux conservent la correction TableEx : aucune projection de colonne
+avec le réglage « active », dimensionnement automatique avec Grow to fit et texte des lignes explicite.
 
-Sources métier et résultats : ../docs/Analyse.md, ../docs/Qualité.md
-et les deux notebooks du dossier assurance.
+SCRIPT VIDÉO
+
+../docs/Script_video.txt suit les cinq pages et les nouveaux résultats.
+Les chiffres correspondent à des pages sans filtre. Une sélection conservée
+modifie les valeurs : réinitialiser les menus avant de commencer la capture.
+
+Référence Microsoft pour le remplissage des tableaux :
+https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-tables

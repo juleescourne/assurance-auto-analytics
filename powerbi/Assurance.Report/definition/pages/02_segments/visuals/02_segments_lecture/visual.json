@@ -3,11 +3,11 @@
   "name": "02_segments_lecture",
   "position": {
     "x": 28,
-    "y": 328,
-    "z": 27,
-    "height": 40,
-    "width": 1384,
-    "tabOrder": 27
+    "y": 316,
+    "z": 10,
+    "height": 44,
+    "width": 1544,
+    "tabOrder": 10
   },
   "visual": {
     "visualType": "textbox",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -149,7 +149,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Survoler les barres pour lire contrats, sinistres, exposition et coûts manquants. Sélectionner une barre filtre les autres visuels.",
+                    "value": "Comparer les durées : une fréquence annualisée élevée ne prouve pas un effet de la marque. Sans montant = part des contrats sinistrés.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "11pt",

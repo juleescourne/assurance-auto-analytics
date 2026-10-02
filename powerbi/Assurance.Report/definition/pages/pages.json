@@ -1,9 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
   "pageOrder": [
     "01_portefeuille",
     "02_segments",
+    "04_r24",
+    "05_r11",
     "03_qualite"
   ],
-  "activePageName": "01_portefeuille"
+  "activePageName": "03_qualite"
 }

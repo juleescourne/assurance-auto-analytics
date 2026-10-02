@@ -3,10 +3,10 @@
   "name": "01_portefeuille_filtre_region",
   "position": {
     "x": 28,
-    "y": 118,
+    "y": 120,
     "z": 2,
-    "height": 68,
-    "width": 290,
+    "height": 64,
+    "width": 371,
     "tabOrder": 2
   },
   "visual": {
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -205,6 +205,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }

@@ -4,10 +4,10 @@
   "position": {
     "x": 28,
     "y": 20,
-    "z": 17,
-    "height": 55,
-    "width": 1384,
-    "tabOrder": 17
+    "z": 0,
+    "height": 54,
+    "width": 1544,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "textbox",
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -149,10 +149,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Comprendre les écarts entre les segments",
+                    "value": "B12 | L’écart persiste-t-il selon l’exposition ?",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "26pt",
+                      "fontSize": "24pt",
                       "color": "#FFFFFF",
                       "fontWeight": "bold"
                     }

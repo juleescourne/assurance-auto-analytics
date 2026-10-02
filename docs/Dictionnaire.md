@@ -1,7 +1,7 @@
 # Dictionnaire des données et KPI
 
 **Projet :** assurance automobile, étude de cas fictive.
-**Mise à jour :** 01/10/2026. Les définitions ci-dessous correspondent aux notebooks et aux mesures du projet Power BI.
+**Mise à jour :** 02/10/2026. Les définitions ci-dessous correspondent aux notebooks et aux mesures du projet Power BI.
 
 ## 1. Données brutes
 
@@ -111,3 +111,26 @@ La priorité d'exploration repose sur **10 000 contrats minimum**, **1 000 anné
 - Lire les coûts avec leur couverture : la part sans montant ne mesure pas les sinistres partiellement manquants d'un contrat déjà présent dans sev.
 
 Sources : [versions OpenML et documentation métier](../data/SOURCES.md). Résultats : [Analyse.md](Analyse.md). Contrôles : [Qualité.md](Qualité.md).
+
+## 6. Investigations ajoutées le 02/10/2026
+
+Les tables suivantes sont des contrôles exportés, non importés dans le modèle Power BI :
+
+| Fichier | Grain |
+|---|---|
+| investigation_b12_exposition.csv | Groupe de marque × tranche d'exposition, véhicules de 0 an uniquement |
+| investigation_b12_sensibilite.csv | Groupe de marque × scénario d'exposition, véhicules de 0 an uniquement |
+| investigation_regions_profils.csv | Région étudiée × axe × modalité ; colonnes région et ailleurs |
+| investigation_regions_croisees.csv | Région étudiée × deux tranches : âge véhicule / bonus-malus pour R24, densité / bonus-malus pour R11 |
+| investigation_regions_sensibilite.csv | Région étudiée × scénario ; colonnes région et ailleurs |
+| investigation_couts_regions.csv | Région ; statistiques des montants individuels rapprochés |
+
+Les colonnes terminant par `_region` décrivent la région étudiée ; `_ailleurs` décrit toutes les autres régions réunies. `EcartFrequence` vaut région moins ailleurs ; `RatioFrequence` vaut région divisée par ailleurs. Un comparateur absent donne une valeur manquante.
+
+`ComparaisonLisible` exige au moins 1 000 contrats et 500 années d'exposition de chaque côté. Ce seuil sert à la restitution ; ce n'est ni un test statistique ni une correction des comparaisons multiples. Les CSV conservent aussi les groupes sous les seuils. Ne pas additionner les effectifs entre axes, régions étudiées ou scénarios : ces périmètres se recoupent.
+
+Dans Power BI, les mesures `Frequence R24` et `Frequence hors R24` fixent uniquement le périmètre régional et gardent les autres filtres. Même principe pour R11. Les mesures `Frequence comparable…` masquent les deux barres si l'un des deux groupes est sous le seuil. Les tables croisées appliquent le même seuil à chaque paire.
+
+Les mesures `…B12 zero` comptent seulement B12 avec VehAge = 0. Le tableau de sensibilité `Frequence zero…` garde toutes les marques, séparées par ses lignes. Les seuils > 0,10 et > 0,50 sont stricts ; les scénarios ne suppriment aucune donnée de la référence. Les filtres de page continuent de s'appliquer : retirer le filtre Exposition pour retrouver les scénarios complets.
+
+« Sans B12 / 0 an » exclut seulement l'intersection de ces deux conditions, pas toute la marque B12 ni tous les véhicules de 0 an. Le scénario combiné impose aussi Exposure > 0,10. Ces filtres sont appliqués aux deux côtés des comparaisons régionales.

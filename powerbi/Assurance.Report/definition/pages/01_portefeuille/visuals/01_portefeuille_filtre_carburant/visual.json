@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "01_portefeuille_filtre_carburant",
   "position": {
-    "x": 1034,
-    "y": 118,
+    "x": 1201,
+    "y": 120,
     "z": 5,
-    "height": 68,
-    "width": 378,
+    "height": 64,
+    "width": 371,
     "tabOrder": 5
   },
   "visual": {
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -205,6 +205,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }
