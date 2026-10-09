@@ -1,5 +1,5 @@
 RAPPORT POWER BI — ASSURANCE AUTOMOBILE
-Mise à jour du 02/10/2026 : investigations B12 / véhicules de 0 an, R24 et R11.
+Mise à jour du 09/10/2026 : export PDF, orphelins agrégés et quatre priorités.
 
 MISE EN PAGE CORRIGÉE — TABLEAUX DÉROULANTS
 
@@ -11,7 +11,7 @@ Les largeurs personnalisées ont été supprimées des onze tableaux.
 Les en-têtes peuvent revenir à la ligne. Les calculs et les filtres sont conservés.
 
 Les contrôles de fichiers confirment les dimensions et l'absence de chevauchement.
-Le rendu natif dans Desktop reste à confirmer. Fermer puis rouvrir Assurance.pbip
+Le PDF fourni le 09/10/2026 présente le rendu des cinq pages. Fermer puis rouvrir Assurance.pbip
 pour charger la mise en page ; Actualiser seul ne recharge pas les visuels.
 Pour créer Assurance.pbix, utiliser Enregistrer sous depuis le projet corrigé.
 
@@ -27,7 +27,7 @@ OUVRIR LA VERSION À JOUR
 4. Comparer les valeurs aux contrôles ci-dessous. Enregistrer après vérification.
 
 La référence est Assurance.pbip. L'ancienne copie Assurance_corrigee et le fichier
-Dashboard_Ventes.pbip ne sont pas cette version et ne doivent pas servir à la démo.
+Dashboard_Ventes.pbip ne sont pas cette version et ne doivent pas servir de référence.
 
 DONNÉES ET MODÈLE
 
@@ -142,18 +142,19 @@ au format TMDL dans Assurance.SemanticModel/definition : trois tables et 86 mesu
 Le contrôle des livrables vérifie les références des visuels dans ce format ;
 il ne compile pas les expressions DAX.
 
-Le contrôle Windows ne démarre pas dans l'environnement utilisé pour cette mise
-à jour (erreur d'initialisation du module). Le rendu natif, l'actualisation et
-l'exécution des nouvelles mesures DAX n'ont PAS été validés dans Desktop.
-Vérifier les cinq pages et les valeurs ci-dessus avant de filmer ou publier.
+Le PDF fourni le 09/10/2026 permet de consulter le rendu des cinq pages.
+L'actualisation et l'exécution des mesures ne sont pas retestées par la mise en ligne
+de cet export. Vérifier les valeurs ci-dessus après chargement dans Desktop.
 Les tableaux conservent la correction TableEx : aucune projection de colonne
 avec le réglage « active », dimensionnement automatique avec Grow to fit et texte des lignes explicite.
 
-SCRIPT VIDÉO
+CONSULTER LE RAPPORT
 
-../docs/Script_video.txt suit les cinq pages et les nouveaux résultats.
-Les chiffres correspondent à des pages sans filtre. Une sélection conservée
-modifie les valeurs : réinitialiser les menus avant de commencer la capture.
+../livrables_portfolio/Assurance.pdf contient les cinq pages du rapport.
+Le parcours guidé associe captures, interprétations et suites proposées :
+https://juleescourne.github.io/portfolio-data-analyst/#/assurance
+Les captures sont statiques. Les filtres restent disponibles dans Desktop.
+Les chiffres de référence correspondent à des pages sans filtre.
 
 Référence Microsoft pour le remplissage des tableaux :
 https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-tables

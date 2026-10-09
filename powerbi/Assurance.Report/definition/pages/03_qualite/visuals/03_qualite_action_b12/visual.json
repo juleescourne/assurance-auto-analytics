@@ -1,93 +1,84 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
-  "name": "03_qualite_kpi_0",
+  "name": "03_qualite_action_b12",
   "position": {
-    "x": 28,
-    "y": 200,
-    "z": 6000,
-    "height": 104,
-    "width": 240.66666666666666,
-    "tabOrder": 6000
+    "x": 417,
+    "y": 880,
+    "z": 17200,
+    "height": 140,
+    "width": 377,
+    "tabOrder": 17200
   },
   "visual": {
-    "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Contrats"
-                    }
-                  },
-                  "Property": "Contrats sans montant"
-                }
-              },
-              "queryRef": "Contrats.Contrats sans montant",
-              "nativeQueryRef": "Contrats sans montant"
-            }
-          ]
-        }
-      }
-    },
+    "visualType": "textbox",
     "objects": {
-      "labels": [
+      "general": [
         {
           "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#C77916'"
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "02 · B12 / ÂGE CODÉ 0",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#2C7BE5",
+                      "fontWeight": "bold"
                     }
                   }
-                }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Comprendre le signal",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#142D4E",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Comparer aux autres marques",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "color": "#40566F"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "à exposition et profils proches.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "color": "#40566F"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Demander les circonstances des sinistres.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "color": "#40566F"
+                    }
+                  }
+                ]
               }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "24D"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryLabels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "wordWrap": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
+            ]
           }
         }
       ]
@@ -99,14 +90,14 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sinistres sans montant'"
+                  "Value": "''"
                 }
               }
             },
@@ -191,7 +182,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#DFE6EE'"
+                      "Value": "'#CFDBE9'"
                     }
                   }
                 }
@@ -213,7 +204,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }

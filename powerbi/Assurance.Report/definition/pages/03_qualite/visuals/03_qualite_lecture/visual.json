@@ -1,16 +1,38 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "03_qualite_lecture",
   "position": {
     "x": 28,
     "y": 316,
-    "z": 45,
+    "z": 12000,
     "height": 44,
     "width": 1544,
-    "tabOrder": 12
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Part sans montant : parmi les contrats avec sinistre, ceux sans montant rattaché. Une absence de montant ne vaut pas zéro.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "11pt",
+                      "color": "#142d4e"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -140,29 +162,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "objects": {
-      "general": [
-        {
-          "properties": {
-            "paragraphs": [
-              {
-                "textRuns": [
-                  {
-                    "value": "Part sans montant : parmi les contrats avec sinistre, ceux sans montant rattaché. Une absence de montant ne vaut pas zéro.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#142D4E",
-                      "fontWeight": "normal"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

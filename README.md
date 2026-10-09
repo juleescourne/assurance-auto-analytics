@@ -7,6 +7,8 @@ Je pars de deux tables publiques d'assurance automobile pour identifier les segm
 
 La question métier est simple : **quels groupes concentrent les sinistres, et lesquels ont une fréquence élevée une fois leur exposition prise en compte ?** Il s'agit d'une mission fictive, sans lien avec un assureur commanditaire.
 
+**[Parcourir les cinq dashboards et leur analyse](https://juleescourne.github.io/portfolio-data-analyst/#/assurance)** · **[Consulter le rapport PDF](livrables_portfolio/Assurance.pdf)**
+
 ## Ce que je retiens
 
 - **B12 / véhicules de 0 an : l'écart persiste à durée proche.** Entre 0,50 et 1 an d'exposition, la fréquence est de 21,33 contre 9,68 pour les autres marques. La forte part de montants absents impose encore une vérification des sources.
@@ -35,6 +37,7 @@ Ce sont des comparaisons descriptives, pas des preuves causales. Les effectifs, 
 
 | Fichier | Rôle |
 |---|---|
+| [livrables_portfolio/Assurance.pdf](livrables_portfolio/Assurance.pdf) | Les cinq dashboards, export fourni le 9 octobre 2026 |
 | [docs/Cadrage.md](docs/Cadrage.md) | Question métier, périmètre et livrables |
 | [docs/Dictionnaire.md](docs/Dictionnaire.md) | Grain, colonnes, segments et définitions des KPI |
 | [data_quality.ipynb](notebook/data_quality.ipynb) | Contrôles des deux sources et décisions de traitement |
@@ -70,7 +73,7 @@ Le rapport contient cinq pages :
 4. **R11** : profils densité / bonus-malus et comparaison au reste du portefeuille.
 5. **Qualité et limites** : couverture des montants, écart de dénombrement, orphelins et priorités.
 
-**État au 02/10/2026 :** les deux notebooks d'analyse ont été réexécutés et les CSV régénérés. Les fichiers, références et positions Power BI sont contrôlés. **L'actualisation, l'exécution des nouvelles mesures DAX et l'affichage natif restent à confirmer dans Power BI Desktop.** Le contrôle des fichiers ne remplace pas cette dernière étape.
+**État au 09/10/2026 :** les cinq pages sont consultables dans le PDF fourni et dans le parcours guidé du portfolio. La page Qualité présente les orphelins agrégés et quatre priorités : fiabiliser les données, puis investiguer B12, R24 et R11. Les notebooks conservent leurs résultats exécutés. Les contrôles de fichiers et cet export ne remplacent pas la vérification de l’actualisation et des mesures DAX après chargement dans Desktop. Les tests statistiques restent à réaliser.
 
 ## Reproduire l'analyse
 

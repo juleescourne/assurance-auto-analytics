@@ -1,16 +1,38 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "03_qualite_pied",
   "position": {
-    "x": 28,
-    "y": 1044,
-    "z": 51,
-    "height": 28,
-    "width": 1544,
-    "tabOrder": 18
+    "x": 28.259041211101763,
+    "y": 1038,
+    "z": 18000,
+    "height": 36,
+    "width": 1543.4819175777964,
+    "tabOrder": 18000
   },
   "visual": {
     "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Qualité descriptive : les alertes orientent les vérifications. Elles ne démontrent ni une erreur de saisie, ni une cause, ni une fraude.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10pt",
+                      "color": "#5d6b7a"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -140,29 +162,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "objects": {
-      "general": [
-        {
-          "properties": {
-            "paragraphs": [
-              {
-                "textRuns": [
-                  {
-                    "value": "Qualité descriptive : les alertes orientent les vérifications. Elles ne démontrent ni une erreur de saisie, ni une cause, ni une fraude.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "10pt",
-                      "color": "#5D6B7A",
-                      "fontWeight": "normal"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   }
 }

@@ -1,6 +1,6 @@
 # Synthèse des analyses — Assurance automobile
 
-**Date :** 02/10/2026
+**Date des analyses :** 02/10/2026 — suites proposées précisées le 05/10/2026
 **Projet :** étude de cas fictive sur les données freMTPL2freq et freMTPL2sev
 **Sources :** [analyse globale](../notebook/analyse_globale.ipynb) et [analyse approfondie](../notebook/analyse_approfondie.ipynb)
 **Contrôles des données :** [rapport qualité](Qualité.md)
@@ -186,10 +186,16 @@ Les contrôles des regroupements ont confirmé la conservation des totaux attend
 
 | Priorité | Action proposée et résultat attendu |
 |---|---|
-| B12 / véhicule de 0 an | Faire vérifier les périodes ClaimNb / Exposure et l'extraction des montants ; recalculer les comparaisons après validation. L'écart persiste entre 0,50 et 1 an : ne pas attribuer tout le signal aux expositions très courtes. |
-| R24, véhicules 1-2 ans / bonus-malus 76-100 | Demander les circonstances des 117 sinistres et comparer les autres caractéristiques à celles du même groupe hors R24. Objectif : déterminer si une investigation métier ou une prévention ciblée est justifiée. |
-| R24, coûts | Confirmer le gros sinistre et présenter systématiquement moyenne, médiane et influence du maximum. Ne pas interpréter la moyenne seule comme un coût habituel. |
-| R11, densité 1 001-5 000 / bonus-malus 51-75 | Examiner ce profil de 6 793 contrats en priorité ; vérifier aussi la couverture des montants. Éviter de généraliser aux tranches où les fréquences sont proches ailleurs. |
+| 1. Fiabiliser les données | Rapprocher les contrats sinistrés sans montant retrouvé, vérifier les identifiants et les périmètres d'extraction. Confirmer que ClaimNb et Exposure portent sur la même période ; contrôler les expositions supérieures à un an. Recalculer les indicateurs après validation. |
+| 2. B12 / véhicule codé 0 an | Comparer B12 aux autres marques à tranche d'exposition proche, puis tenir compte de l'âge du conducteur, du bonus-malus et de la région. Demander les circonstances et la nature des sinistres pour préciser le signal. Le code d'âge 0 ne suffit pas à établir la date d'achat ou l'état neuf du véhicule. |
+| 3. R24, véhicules 1-2 ans / bonus-malus 76-100 | Estimer un intervalle de confiance à 95 % sur le rapport des fréquences et tester l'égalité des taux avec les mêmes tranches hors R24. Examiner les circonstances des 117 sinistres et les différences restantes de profils (âge du conducteur, densité, exposition). Contrôler séparément le plus gros sinistre de la région et son influence sur les coûts, sans supposer qu'il appartient à ce sous-groupe. |
+| 4. R11, densité 1 001-5 000 habitants/km² / bonus-malus 51-75 | Estimer l'incertitude du rapport des fréquences et tester les taux contre les mêmes tranches hors R11. Contrôler les différences d'âge et d'exposition, ainsi que la couverture des montants. Comparer aussi la tranche 5 001-20 000, où les fréquences observées sont proches ; cela ne démontre pas leur équivalence. Les densités supérieures à 20 000 restent sans comparateur extérieur. |
+
+**Méthode statistique proposée — non réalisée.** Les comparaisons doivent porter sur les nombres de sinistres rapportés aux années d'exposition, et non sur une simple proportion de contrats sinistrés. Une première approche est un test bilatéral d'égalité de deux taux de Poisson, accompagné d'un intervalle de confiance à 95 % du rapport des taux. Vérifier l'indépendance et la dispersion ; en cas de surdispersion ou de différences de composition à ajuster, envisager un modèle de comptage adapté, avec l'exposition prise en compte. La documentation décrit les [tests et intervalles pour deux taux](https://www.statsmodels.org/stable/examples/notebooks/generated/stats_poisson.html).
+
+Les profils ayant été repérés après exploration de plusieurs croisements, tenir compte de la sélection : documenter l'ensemble des comparaisons et envisager une [correction pour comparaisons multiples](https://www.statsmodels.org/v0.14.4/generated/statsmodels.stats.multitest.multipletests.html), puis confirmer si possible sur des données indépendantes. Aucun résultat de test, aucune significativité ni causalité ne sont établis ici.
+
+La dernière page Power BI présente ces quatre suites en cartes numérotées. Pour R11, elle nomme la tranche de densité précisément ; elle ne la qualifie pas de « faible densité ».
 
 Ces actions sont proposées, pas réalisées auprès d'un assureur. Aucun gain financier n'a été mesuré et aucun changement de tarif n'est recommandé sur ces seuls résultats.
 

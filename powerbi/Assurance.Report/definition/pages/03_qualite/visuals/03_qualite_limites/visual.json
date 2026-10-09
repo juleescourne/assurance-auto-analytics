@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "03_qualite_limites",
   "position": {
-    "x": 498,
-    "y": 848,
-    "z": 50,
-    "height": 180,
-    "width": 1074,
-    "tabOrder": 17
+    "x": 28,
+    "y": 835,
+    "z": 17000,
+    "height": 35,
+    "width": 1544,
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,64 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Priorités proposées après investigation",
+                    "value": "Priorités proposées · prochaines investigations",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#142d4e"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "1. B12 / 0 an : vérifier périodes et extraction des montants.",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#142d4e"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "2. R24 : examiner âge véhicule / bonus-malus et le gros sinistre.",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#142d4e"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "3. R11 : comparer densité / bonus-malus avant une action locale.",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#142d4e"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Coûts partiels ; aucune conclusion tarifaire ou causale.",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "11pt",
-                      "color": "#142d4e"
+                      "fontSize": "13pt",
+                      "color": "#ffffff"
                     }
                   }
                 ]
@@ -154,7 +102,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EAF0F8'"
+                      "Value": "'#142D4E'"
                     }
                   }
                 }
@@ -185,7 +133,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#DFE6EE'"
+                      "Value": "'#142D4E'"
                     }
                   }
                 }
@@ -207,7 +155,27 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
                 }
               }
             }
